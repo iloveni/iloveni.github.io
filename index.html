@@ -158,6 +158,338 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-控制语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="控制语句、列表、元组、字典、集合、迭代器、生成器、高级函数"><a href="#控制语句、列表、元组、字典、集合、迭代器、生成器、高级函数" class="headerlink" title="控制语句、列表、元组、字典、集合、迭代器、生成器、高级函数"></a>控制语句、列表、元组、字典、集合、迭代器、生成器、高级函数</h3><hr>
+<p>1）条件语句<br>单判断：<br>if 条件:<br>   代码<br>双分支：<br>if 条件：<br>   代码<br>else:<br>   代码<br>多分支：<br>if 条件：<br>   代码<br>elif 条件：<br>   代码<br>elif 条件：<br>   代码<br>…<br>else:<br>   代码</p>
+<p>2）逻辑运算符： and、or、not<br>and:左右两端都是布尔型，其结果也为布尔型。当左右两端的值都为True，其结果才为True，有一方为False，其结果一定为False。<br>or:左右两端都是布尔型，其结果也为布尔型。当左右两端的值有一方为True时，其结果就为True，只有在双方都为False时，其结果才为False。<br>not：属于单目运算，其结果也是布尔型。其作用就是求反，如果变量为True，结果为False，如果为False，其结果为True。<br>逻辑运算、比较运算常用在条件中使用。同时，这两种运算符经常配合使用。</p>
+<p>3）循环控制语句<br>for循环<br>第一种：（推荐）<br>for 变量 in 集合：<br>    代码<br>说明：这种循环方式，我们称为快速迭代循环，能够对集合数据进行遍历。<br>注意：这种方式只能用在集合数据上，比如：字符串、列表、元组、字典等内容。<br>例如：<br>string1 = ‘hello world’<br>for item in string1:<br>    print(item)<br>h e l l o  w o r d<br>第二种：传统式，配合range()函数使用。通过range()函数指定了循环的范围。<br>for i range(循环次数):<br>    代码</p>
+<p>说明：这种循环方式，采用指定循环次数，对目标集合进行遍历。其做法主要是让循环与集合的下标同步，在循环次数时一同取出集合指定下标的对应值。<br>range()函数：<br>函数格式：<br>range(stop) :缺省情况下，表示从0开始，循环n次<br>range(star,stop[,step])<br>其中，star：循环开始的值，stop：循环次数，step：循环步长。注意此处循环，会根据stop中的值循环规定的次数，但是显示时会从start位置开始。<br>例如：<br>for i in range(3,10):<br>    print(i,end=’ ‘)<br>3 4 5 6 7 8 9<br>for i in range(5,10):<br>    print(i,end=’ ‘)<br>5 6 7 8 9<br>range(1,10)  </p>
+<p>for循环的常用方式：嵌套<br>for i in range(次数):</p>
+<pre><code>for j in range(次数):
+</code></pre><p>注意：在这种嵌套表示的过程中，变量的位置尤为重要，通用原则为：如果变量的值需要通过外层循环来获取或生成，那么我们可以将其设为全局变量，即与外层循环for同等级的变量，如果变量需要在内层循环中生成或获取，我们通常会在外循环中声明，即与内循环同级。<br>while循环<br>格式：while 条件：<br>           代码<br>break与continue<br>break：当满足指定条件时，break表示中断（中止）此循环，如果循环外部还有其他代码则继续向下执行。<br>continue：当满足指定条件时，continue表示结束本次循环，开始下一次循环。注意continue并没有退出循环。<br>同时，这两个关键字都是必须配合循环语句来使用，不能单独用在其他地方，比如：if</p>
+<h3 id="组合数据类型-列表（list）"><a href="#组合数据类型-列表（list）" class="headerlink" title="组合数据类型  列表（list）"></a>组合数据类型  列表（list）</h3><hr>
+<p>1）列表（list）:<br>一、有序集合；可以添加或删除，长度随之变；存储任意类型（数值、字符串）；可以使用循环遍历<br>二、声明与赋值<br>格式：list1=[1,2,3,4]<br>list2=[‘q’,’s’,’2’]<br>list3=[1,’q’,3]<br>例如：<br>for i in list1:<br>    print(i,end=’ ‘)<br>1 2 3 4<br>2、声明一个空列表，后需添加元素<br>list1=list2()<br>此时，会生成空列表即[],长度为0，里面没有任何值<br>3、列表的操作</p>
+<blockquote>
+<p>1）增加元素</p>
+</blockquote>
+<p>第一种，append(),即在后面加一个元素,或整个列表，改变原列表内容</p>
+<blockquote>
+<p>list1=[1,2,3,4]<br> list2=[5]<br>list1.append(7)<br>print(list1)<br>[1, 2, 3, 4, 7]</p>
+</blockquote>
+<p>第二种，extend()，即在后面加一个列表内容，改变原列表内容<br>print(list1)<br>[1, 2, 3, 4, [‘a’, ‘s’]]<br>list1.extend(list2)<br>print(list1)<br>[1, 2, 3, 4, [‘a’, ‘s’], ‘a’, ‘s’]</p>
+<p>第三种，使用‘+’运算符，连接两个列表，得到新的列表，原列表不变<br>list1=[1,2,3,4]<br>list2=[5,6,7]<br>list1+list2<br>[1, 2, 3, 4, 5, 6, 7]</p>
+<p>第四种，使用insert(),对列表指定位置进行插入操作，改变原列表内容<br>比较耗费内存<br>print(list1)<br>[1, 2, 3, 4]<br>print(list2)<br>[5, 6, 7]<br>list1.insert(2,list2)<br>print(list1)<br>[1, 2, [5, 6, 7], 3, 4]<br>格式：list.insert（idx,元素）idx:插入索引位<br>返回值长度加1</p>
+<blockquote>
+<p>2）修改元素</p>
+</blockquote>
+<p>通过索引位，找到指定列表，重新赋值<br>list1=[1,2,3,4]<br>list1[2]<br>3<br>list1[2]=’s’<br>print(list1)<br>[1, 2, ‘s’, 4]</p>
+<blockquote>
+<p>3）删除元素</p>
+</blockquote>
+<p>1、找到指定元素，长度减1<br>print(list1)<br>[1, 2, ‘s’, 4]<br>list1.remove(1)<br>print(list1)<br>[2, ‘s’, 4]</p>
+<blockquote>
+<p>2、pop()的两种模式</p>
+</blockquote>
+<p>list.pop():默认模式，从列表的尾部弹出一个元素<br>返回值：返回所弹出的元素本身，如果列表为空，报错，提示列表为空<br>list.pop(indx):直接输入列表元素，与remove相似，但会有元素返回</p>
+<blockquote>
+<p>3、del删除（是命令不是函数）</p>
+</blockquote>
+<p>del list[3:5]    删除片段，即删除索引位第3位，第4位<br>del list1        直接删除list1，释放内存<br>del list1[indx]  删除指定索引位对应的元素<br>列表乘法<br>[1,2,3,4]*2<br>[1,2,3,4,1,2,3,4]</p>
+<blockquote>
+<p>del与clear()的区别</p>
+</blockquote>
+<p>del list VS list.clear()<br>1、del 可以将列表的内容进行删除，同时将列表所占内存进行释放。<br>2、clear()只是将列表中的内容进行清空，原列表内容为空。</p>
+<blockquote>
+<p>+与*运算符</p>
+</blockquote>
+<p>在列表中我们使用+运算符，可以将两个列表进行连接，生成一个新的列表。<br>比如：list1 = [1,2,3]  list2 = [4,5,6]  list1+list2=&gt;[1,2,3,4,5,6]<br>使用<em>运算符，可以将目标列表的内容重复N次，并生成一个新的列表。<br>比如：list1 = [1,2,3] list1</em>2=&gt;[1,2,3,1,2,3]</p>
+<blockquote>
+<p>max()与min()</p>
+</blockquote>
+<p>函数格式：max(list)、min(list)<br>返回值：返回该列表中最大值或最小值。<br>注意：该函数在使用时，必须要求所统计的列表中元素的数据类型要一致。不支持多数据类型，数值型根据数值本身大小取值，字符串类型根据字母的ASCII码值取值，布尔值根据对应的1、0取值。</p>
+<blockquote>
+<p>sum()</p>
+</blockquote>
+<p>函数格式：sum(list)<br>返回值：将列表中所用的数值进行求和运算，返回结果。注意，该函数只能用于数值型列表。<br>sort()排序<br>函数格式：list.sort()、list.sort(reverse=True)<br>返回值：默认情况下，将原列表中元素按照升序进行排序,<br>如果设置了反转参数为True，那么将原列表中的元素按照降序排列</p>
+<blockquote>
+<p>sorted()排序</p>
+</blockquote>
+<p>函数格式：sorted(list)、sorted(list,reverse=True)<br>返回值：默认情况下，将原列表中元素按照升序进行排序,<br>如果设置了反转参数为True，那么将原列表中的元素按照降序排列<br>注意：上面两种排序函数，其中第一个属于列表自身的排序方法，而第二种属于python内置的排序方法，也就是说第二种可以应用在包括列表在内多种集合排序。</p>
+<blockquote>
+<p>count()计数函数</p>
+</blockquote>
+<p>函数格式：list.count(元素)<br>返回值：返回指定元素在列表中出现的次数</p>
+<blockquote>
+<p>in 关键字</p>
+</blockquote>
+<p>判断指定的元素是否在列表中存在，如果存在返回True，否在返回False</p>
+<blockquote>
+<p>index()检索函数</p>
+</blockquote>
+<p>函数格式：list.index(元素)<br>返回值：返回该元素在列表中的索引位置，如果不存在报错。</p>
+<blockquote>
+<p>常用数据类型的转换</p>
+</blockquote>
+<p>字符串转为整型：int(str)<br>函数格式：int(str)<br>返回值：将字符型数值转为整数<br>int(‘3’) =&gt; 3<br>字符串转为浮点型:float(str)<br>函数格式：float(str)<br>返回值：将字符型浮点数转为浮点数<br>float(‘2.4’) =&gt; 2.4<br>数值转为字符串：str(int)、str(float)<br>函数格式：str(int)、str(float)<br>返回值：将整数或浮点数，转为字符型数值<br>str(2) =&gt; ‘2 ‘    str(2.4) =&gt; ‘2.4’<br>字符串转为列表：list(str)<br>函数格式：list(str)<br>返回值：将指定的字符串，按照元素顺序逐一转为列表<br>string1 = ‘hello world’<br>list1 = list(string1)</p>
+<blockquote>
+<p>列表比较运算符操作</p>
+</blockquote>
+<p>相当于列表使用普通的比较运算符<br>import operator<br>operator.ge()         大于等于   &gt;=<br>operator.gt()         大于       &gt;<br>operator.eq()       等于         ==<br>operator.ne()        不等于      !=<br>operator.le()           小于等于 &lt;=<br>operator.lt()          小于      &lt;<br>格式：operator.ge(列表1,列表2)<br>返回值：如果符合条件，返回True，反之，返回False<br>[‘h’, ‘e’, ‘l’, ‘l’, ‘o’, ‘ ‘, ‘w’, ‘o’, ‘r’, ‘l’, ‘d’]<br>拆分字符串：str.split(分隔符)<br>函数格式：str.split(分隔符)<br>返回值：将字符串，根据指定的分隔符，转换为列表<br>string1 = “锅包肉 肠粉 毛血旺 宫保鸡丁”<br>list2 = string1.split(‘ ‘)<br>[‘锅包肉’, ‘肠粉’, ‘毛血旺’, ‘宫保鸡丁’]<br>列表转为字符串：’分隔符’.join(list)<br>函数格式:’分隔符’.join(list)<br>返回值：将指定的列表中的元素，通过分隔符进行连接，转换为字符串<br>list2 = [‘锅包肉’, ‘肠粉’, ‘毛血旺’, ‘宫保鸡丁’]<br> ‘ ‘.join(list2)<br>‘锅包肉 肠粉 毛血旺 宫保鸡丁’<br>print(list1)</p>
+<h3 id="2Tuple元组"><a href="#2Tuple元组" class="headerlink" title="2Tuple元组"></a>2Tuple元组</h3><hr>
+<p>1、元组的概念：元组是值的有序序列，里面可以存储各种数据类型的元素。但是元组一旦被赋值后，其内容就不可被改变。<br>2、声明与赋值<br>第一种，tup = a,b,c,d<br>第二种，tup = (a,b,c,d) 推荐使用该种声明方式。<br>第三种，tup = tuple() 声明一个空的元组对象<br>注意：元组在赋值时，且元素只有一个时，具体情况如下：<br>tuple1 = (1,)或tuple1 = 1,一定要在元素后面加上一个,号，与普通变量赋值进行区分。<br>3、常用操作<br>+、*、in、遍历等等，参考列表。<br>4、元组与列表转换<br>元组转为列表：<br>tuple1 = (1,2,3)<br>list1 = list(tuple1)<br>列表转为元组<br>list1 = [1,2,3]<br>tuple1 = tuple(list1)<br>周内容补充:<br>1、在python中，我们认为变量如果被赋值后，使用not运算后，会得False。如果一个变量没有被赋值或设为空值，那么进行not运算时，返回True。比如：<br>a = 10<br>not a =&gt; False<br>a = None (None代表了空值)<br>not a =&gt; True<br>list1 = list() 此时列表没有被赋值，为空列表<br>not list1 =&gt; True<br>list1.append(1,2,3)  此时列表进行赋值<br>not list1 =&gt; False</p>
+<h3 id="字典数据类型"><a href="#字典数据类型" class="headerlink" title="字典数据类型"></a>字典数据类型</h3><hr>
+<p>1、字典类型的基本概念<br>字典数据类型，由key=value结构构成的。也就是说字典类型中的每个元素都是有两部分构成，中间使用：连接。其中，key和value的可以是任意数据类型的内容。<br>2、字典对象的生成<br>第一种、dic = {1:’one’,2:’two’,3:’three’}，两边使用一对{}来界定。<br>第二种、dic = dict() 生成一个空字典。<br>第三种、dic = dict({1:’one’,2:’two’,3:’three’})</p>
+<p>注意：字典中的key是唯一的，如果在生成时命名了多个同名的key，那么实际上字典会使用最后一次命名的key来覆盖前面的同名内容。<br>同时，字典在赋值时，允许其value或key为空。<br>3、字典的特性<br>首先、字典中的元素时根据每对键值对中的key来决定的，通过相应的哈希算法来决定他们对应的value的存储地址，因此字典时无序的。<br>其次，字典中的key，可以是数值、字符串、元组等构成，注意这些内容都是不可改变的。同时，字典中的key都是唯一的。<br>然后，字典中的value需用通过key来获取。<br>4、字典的常用操作<br>1）字典的新增和修改<br>dic = {1:’one’,2:’two’,3:’three’}</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>dic[4] = ‘four’<br>{1: ‘one’, 2: ‘two’, 3: ‘three’, 4: ‘four’}<br>如果字典中不存在指定的key，则对该字典实现元素的新增<br>{1: ‘one’, 2: ‘two’, 3: ‘three’, 4: ‘four’, 5: ‘fiv’}<br>dic[5] = ‘five’<br>{1: ‘one’, 2: ‘two’, 3: ‘three’, 4: ‘four’, 5: ‘five’}<br>如果字典中存在指定的key，那么对key对应的value进行修改<br>2）字典的删除<br>第一种，使用del进行字典内容的删除<br>del dic[key]    删除指定可以对应的value内容<br>del dic         删除整个字典，并释放其所占内存<br>第二种，使用pop()函数，删除指定key对应的value内容<br>函数格式：dict.pop(key)  ，其中参数为字典中的key值<br>返回值：返回所删除key对应的value内容<br>第三种，使用clear()函数，清空字典中所有内容<br>函数格式：dict.clear()<br>返回值：清空字典内容，返回一个空字典<br>第四种：popitem()，删除字典中的键值对<br>函数格式：dict.popitem()<br>返回值：会在字典尾部，弹出键值对并删除，将删除的键值对按照元组类型返回</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>3）检索字典<br>第一、查询指定的value,通过指定的key找到对应的value<br>dic[1] = &gt; ‘one’<br>第二、遍历字典<br>for key in dic:<br>    dic[key]</p>
+<p>‘one’<br>‘two’<br>‘three’<br>‘four’<br>‘five<br>4）字典与列表、元组的转换<br>列表转成字典<br>list1 = [[1,’one’],[2,’two’],[3,’three’]]<br>或<br>list1 = [(1,’one’),(2,’two’),(3,’three’)]<br>dic = dict(list1)<br>{1: ‘one’, 2: ‘two’, 3: ‘three’}<br>元组转成字典<br>tup = ((1,’one’),(2,’two’),(3,’three’))<br>dic = dict(tup)<br>{1: ‘one’, 2: ‘two’, 3: ‘three’}<br>注意：不管是元组还是列表，其作为key的那个值必须是不可变数据类型。<br>同时，我们对字典进行新增和修改时，其key可以使用True或False，但是要注意在使用他们时字典会首先对已有的key进行比对，如果有重复的则进行修改（True==1，False==0）</p>
+<p>使用zip()函数生成字典<br>函数格式：zip(iter1,iter2,….)<br>返回值：返回一个zip对象<br>我们通过zip函数，指定对应的元组，分别来作为字典的key和 value，生成zip对象转成字典数据。<br>例如：<br>dict(zip((‘id’,’name’,’city’),(1,’hhp’,’zhengzhou’)))</p>
+<p>5）常用函数<br>1、keys(),获得字典所有的key值集合<br>函数格式：dict.keys()<br>返回值：dict_keys 类型，实际内容为一个list列表。</p>
+<p>dic = {1:’one’,2:’two’,3:’three’}<br>for key in dic.keys():<br>     print(key,dic[key])<br>2、values(),获得字典中所有的value值的集合<br>函数格式：dict.values()<br>返回值：dict_values类型，实际内容为一个list列表<br>3、items(),获得字典中所有key=value键值对的集合<br>函数格式：dict.items()<br>返回值：dict_items类型，实际内容为一个包含元组的list列表<br>dic = {1:’one’,2:’two’,3:’three’}<br>dic.items()</p>
+<p>dict_items([(1, ‘one’), (2, ‘two’), (3, ‘three’)])<br>4、get()，获得字典中指定key对应的value内容<br>函数格式：dict.get(key)<br>返回值：返回指定key对应的value，如果没有找到则不返回任何内容即返回None。例如：<br>dic.get(5) == None<br>True<br>5、setdefault()，返回指定key对应的内容，如果这个key不存在，那么就进行新增<br>函数格式：dict.setdefault(key[,value]),其中key为键值，如果该key在字典中已经存在，那么不需要填写value参数；如果key值在字典中不存在，需要value参数。<br>返回值：如果key值存在，返回该key对应的value内容；如果key不存在，则进行新增返回新增的value内容。<br>6、update(),将新字典中的key=value内容，添加到原有字典尾部，如果新字典内容中有key值与原字典的key值相同，那么就覆盖key值对应的原有value。<br>函数格式：old_dict.update(new_dict)<br>返回值：将新字典中的内容，添加到原有字典的尾部。<br>dic = {1:’麻辣米线’,2:’麻辣烫’,3:’凉皮’,4:’刀削面’,5:’兰州拉面’}<br>dic2 = {‘one’:’美式咖啡’,’two’:’拿铁’,’three’:’卡布基诺’,5:’甜甜圈’}<br>dic.update(dic2)<br>{1: ‘麻辣米线’, 2: ‘麻辣烫’, 3: ‘凉皮’, 4: ‘刀削面’, 5: ‘甜甜圈’, ‘one’: ‘美式咖啡’, ‘two’: ‘拿铁’, ‘three’: ‘卡布基诺’}<br>7、fromkeys(),通过指定的key集合，生成一个新字典，其value值缺省为None<br>函数格式：dict.fromkeys(iter1[,value]) 其中iter1为可迭代化集合，比如：列表、元组；value可以是任意数据类型。<br>返回值：返回一个新字典，其中key为我们在参数中使用的iter1集合，值都为None或者指定的value。比如：<br>dic3 = dict({‘a’:’one’,’b’:’two’,’c’:’three’})<br>a = dic3.fromkeys([1,2,3])<br>{1: None, 2: None, 3: None}</p>
+<p>dic3 = dict({‘a’:’one’,’b’:’two’,’c’:’three’})<br>a = dic3.fromkeys([1,2,3],[‘a’,’b’,’c’])<br>{1: [‘a’, ‘b’, ‘c’], 2: [‘a’, ‘b’, ‘c’], 3: [‘a’, ‘b’, ‘c’]}<br>讨论：<br>列表的可迭代化<br>当生成一个空列表时，因为列表中没有值，所以python并没有相应的内存地址分配给这个列表变量，当该列表添加元素后，python会自动给该列表扩充内存地址，那么地址都是依次连续的在内存中进行排列。</p>
+<h3 id="集合数据类型-set"><a href="#集合数据类型-set" class="headerlink" title="集合数据类型 set"></a>集合数据类型 set</h3><p>1、集合的概念：集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。并且集合是不允许有重复元素，如果出现重复元素，除去第一个元素之外，都会被集合所忽略<br>注意：set是无序的，即存储元素到set的顺序与这些元素输出的顺序无关。set仍然是采用哈希算法，对这些元素进行存储的。<br>2、集合的声明与赋值<br>1）set1 = {1,2,3}   生成一个集合<br>2）set1 = set({1,2,3})<br>3)set1 = set()  生成一个空集合，请注意集合只能通过set()函数来生成空集合，而不是通过set1 = {},这个表达式会生成一个空字典。<br>3、数据类型转换<br>字符串转成集合<br>string = ‘hello’<br>set1 = set(string)<br>{‘l’, ‘o’, ‘h’, ‘e’}<br>列表转成集合<br>list1 = [1,2,3]<br>set1 = set(list1)<br>{1, 2, 3}<br>元组转成集合<br>tup = (1,2,3)<br>set1 = set(tup)<br>{1, 2, 3}<br>4、集合的操作<br>1）元素的增加 add()<br>函数格式：set.add(元素)<br>返回值：无返回值<br>结果：集合元素增加一个<br>例如：<br>set1=&gt;{1, 2, 3}<br>set1.add(4)<br>{1, 2, 3, 4}<br>2）元素的删除<br>第一、remove()<br>函数格式：set.remove(元素)<br>返回值：无返回值<br>结果：集合指定的元素被删除<br>set  =&gt; {1, 2, 3, 4, 5}<br>set1.remove(5)<br>{1, 2, 3, 4}<br>第二、discard()<br>函数格式：set.discard(元素)<br>返回值：无返回值<br>结果：集合中指定的元素被删除<br>set  =&gt; {1, 2, 3, 4, 5}<br>set1.discard(5)<br>{1, 2, 3, 4}<br>注意：上面两个方法，如果删除一个不存在的元素，其中remove()会报错，而discar()无反应<br>第三、clear() 清空集合中所有的元素<br>函数格式：set.clear()<br>返回值：无返回值<br>结果：清空集合中所有的元素<br>set.clear()<br>第四、del命令 删除集合，并释放其所占内存资源<br>del set<br>5、集合运算<br>1）并集运算 (|)或union()<br>两个集合进行并集运算，即将两个集合中的元素都合并到一个新的集合中，重复的元素只出现一次。<br>例如：<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1 | set2 =&gt; {‘jp’, ‘tw’, ‘fr’, ‘zh’, ‘en’}<br>或者<br>set1.union(set2)<br>2）交集运算 （&amp;）或intersection()<br>两个集合进行交集运算，即将两个集合中相同的元素合并到一个新的集合中。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1 &amp; set2 =&gt; {‘en’}<br>或者<br>set1.intersection(set2)<br>3)差集运算（-）或difference()<br>两个集合进行差集运算，即运算符左边的集合，与运算右边的集合进行差运算，相当于使用左边集合去除与右边集合相同的元素。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1 - set2 =&gt; {‘zh’, ‘tw’}<br>或者<br>set1.difference(set2)<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set2 - set1 =&gt; {‘jp’, ‘fr’}<br>或者<br>set2.difference(set1)<br>4)对称差运算（^）或者symmetric_difference()<br>两个集合进行对称差运算，即两个集合中除去相同元素，其他所有元素重新归并到一个新集合中。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set2 ^ set1 =&gt; {‘zh’, ‘tw’,’jp’, ‘fr’}<br>set1.symmetric_difference(set2)<br>5)子集与超集（父集）<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>subset =&gt; {‘zh’, ‘tw’}<br>我们通过观察可以看到，subset中的内容，属于set1的一部分。因此，<br>subset.issubset(set1) =&gt; True<br>表示，subset是set1集合的一个子集合<br>同理，我们也可以说，set1是subset的父集合<br>set1.issuperset(subset) =&gt; True<br>6、集合常用函数<br>1）update()<br>函数格式：set1.update(set2)<br>返回值：无<br>结果：我们将set2中的元素，添加到set1中，如果有相同的元素只保留一个。同时，该操作会修改set1的元素数量。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1.update(set2)<br>set1 =&gt; {‘jp’, ‘tw’, ‘fr’, ‘zh’, ‘en’}<br>2)intersection_update()<br>函数格式：set1.intersection_update(set2)<br>返回值：无<br>结果：我们使用set2中的元素，添加到set1中，其中，保留两个集合中相同的元素。其中，set1、set2中其他的元素被舍弃。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1.intersection_update(set2)<br>set1 =&gt; {‘en’}<br>3）symmetric_difference_update()<br>函数格式：symmetric_difference_update()<br>返回值：无<br>结果：我们使用set1与set2进行运算，只保留两者除去相同元素之外的元素。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1.symmetric_difference_update(set2)<br>set1 =&gt; {‘jp’, ‘fr’, ‘zh’, ‘tw’}</p>
+<h3 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h3><hr>
+<p>1、range()<br>range()函数自身并不会自动产生整数序列，它需要使用其他方式来调用它才会产生。<br>2、列表推导式生成式<br>格式：[表达式或函数  for x in 序列]<br>含义：通过生成式中的循环，逐一产生x值，表达式使用X值进行相关运算。最终结果作为列表的元素。也就意味着，循环多少次，就会产生多少个相关元素。<br>3、迭代器（Iterator）<br>1）概念：迭代器访问元素，是从第一个元素开始，依次访问后续元素直到结束。其中迭代器只能向前不能回退。其包含两个方法iter()和next()。<br>iter()用来创建一个迭代器，next()用来访问下一个元素。<br>目前我们所学的字符串、列表、元组都可以创建迭代器，那么他们也是可迭代化的对象。<br>迭代器两个步骤：<br>1、当调用next()函数，会将迭代器当前位置状态进行改变<br>2、会将下一个元素进行返回</p>
+<p>迭代器的延迟作用：迭代器生成的元素并不是在迭代器声明时，就准备好了的。通常时在调用迭代器需要提供该元素时生成的，也就是说只有在我们需要的时候迭代器才产生相关元素，不需要时并不会主动的生成相关元素。我们可以把迭代器看成一个容器，到我们需要时使用next()方法返回容器中的下一个值。<br>迭代器实现了工厂模式的对象，它在你每次访问下一个值的时候给你返回。</p>
+<p>可迭代化（iterable）：表明相关的对象可以创建迭代器对象，同时他们自身都是可以进行for数据遍历的。我们可以使用isinstance()来判断对象是否为可迭代化</p>
+<p>from collections import Iterable<br>string = ‘hello’<br>print(isinstance(string, Iterable))  =&gt; True<br>函数格式：isinstance(对象，类型)<br>返回值：布尔值<br>结果：如果指定的对象属于指定的类型，那么返回True，反之返回False</p>
+<p>enumerate()函数<br>函数格式：enumerate(iterable)<br>返回值：生成一个枚举对象<br>例如：<br>enum = enumberate([‘one’,’two’,’three’])<br>for i in enum:<br>    print(i)</p>
+<p>(0, ‘one’)<br>(1, ‘two’)<br>(2, ‘three’)</p>
+<p>for i,value in enum:<br>    print(i, value)</p>
+<p>0 one<br>1 two<br>2 three</p>
+<p>生成器<br>1、创建方式<br>第一种，使用列表推导式，将[]改为()，生成一个generator对象<br>第二种，使用函数方式，采用yield关键字来实现<br>2、使用<br>生成器我们通常可以认为一种特殊的迭代器，但是它不需要像迭代器一样去实现<strong>iter</strong>,<strong>next</strong>方法。只需要使用yield关键字，该关键字可以在每次调用生成器函数时起到暂停作用，并将其值进行返回。同时还会记录当前运行值的状态。</p>
+<p>总结：迭代器和生成器<br>1、容器是一系列的元素集合，str、list、set、dict对象都可以看作是容器，容器都可以进行迭代（即用在while或for循环），凡是这样的容器我们都称为可迭代化对象（Iterable）。<br>2、可迭代化对象都实现了<strong>iter</strong>方法，该方法返回一个迭代器对象。<br>3、迭代器都拥有一个状态字段，用于记录下次迭代返回值。它实现了<strong>next</strong>和<strong>iter</strong>方法，迭代器不会一次性把所有的元素都加载到内存中，而是在需要的时候才生成返回结果。<br>4、生成器是一种特殊的迭代器，它的返回值不是通过return来返回的，而是通过yield来返回的。<br>‘’’</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/25/控制语句/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Python爬虫" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/25/Python爬虫/">python爬虫基础概念、HTML网页结构、网络爬虫—urllib库</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/25/Python爬虫/" class="archive-article-date">
+  	<time datetime="2018-08-25T07:54:14.112Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、网络原理<br>1、HTTP与HTTPS的区别<br>HTTP：我们称为超文本传输协议，主要用来实现从网络传输超文本到本地浏览器，实现高效且准确的超文本传送。目前HTTP的版本为1.1<br>HTTPS：我们认为就是以安全为目标的HTTP通道，即在HTTP协议的基础上加入了SSL层，简称HTTPS。<br>SSL的主要作用分为以下两部分：<br>第一、为HTTP传输文件提供安全的传输通道<br>第二、确认网站的真实性，通过HTTPS访问的网站都需要获取到CA认证。</p>
+<p>2、网络七层模型（了解）<br>从下到上的顺序<br>物理层<br>数据链路层<br>网络层<br>传输层（TCP、UDP）<br>会话层<br>表示层<br>应用层（HTTP FTP TFTP SMTP SNMP DNS TELNET HTTPS POP3 DHCP）</p>
+<p>3、HTTP的请求机制<br>第一，由客户端（浏览器）发出请求<br>第二，通过网络传输，到指定的服务器地址<br>第三，服务器接收相关请求，并进行解析<br>第四，服务器将最终的结果响应回客户端<br>第五，客户端接收到服务器响应后，通过浏览器解析，最终将内容进行展现</p>
+<p>4、客户端访问服务器，发出请求，有四部分构成<br>第一，请求方法（request method），默认为get方式。只有在表单提交和文件上传时为post方法。<br>第二，请求网址（request url），即在浏览器中输入的网路地址。<br>第三，请求头（request header），用来标识为一个浏览器正常的访问<br>第四，请求体（request body），用来传输到服务器端的相关数据</p>
+<p>5、请求方法中get与post的区别<br>第一、使用get方式提交请求时，相关数据会作为url的参数被一起进行提交，我们可以直接在地址栏中观察到相关数据。而采用post方式请求的url不会包含这些数据，而是直接通过表单提交到服务器。<br>第二、get方式提交请求，对于提交的数据大小不能大于1024字节，而post方式提交数据，没有大小的限制。<br>总之，如果提交的信息比较敏感或者字节较大时，需要使用post方式；如果只是普通的请求使用get方式。</p>
+<p>二、HTML网页结构<br>1、HTML基本构成<br>HTML有三个标签来构成基本结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;:作为HTML文件的根标签，所有的页面中的标签和内容都要在HTML标签的范围内。</span><br><span class="line">&lt;head&gt;：作为HTML文件的头部标签，相关页面的信息、编码、引导外部的CSS文件和JS文件，都需要放置在head标签中。</span><br><span class="line">&lt;body&gt;：body标签中的内容，就是我们爬虫需要解析的主体。所有需要在页面上展现的内容，都会放置在该标签中。</span><br><span class="line">2、常见的HTML标签</span><br><span class="line">1）h1...h6：标题标签，用来显示标题，h1最大，h6最小。</span><br><span class="line">2）&lt;p&gt;：段落标签。用来对文本内容进行分段。</span><br><span class="line">3）&lt;a&gt;：链接标签。用来跳转到指定的网址。</span><br><span class="line">&lt;a target=&apos;&apos; href=&apos;URL&apos;&gt;链接地址&lt;/a&gt;</span><br><span class="line">其中参数target，_self:在自身的窗口重新打开指定的网址</span><br><span class="line">_blank：在一个新窗口中打开指定的网址</span><br><span class="line">4）&lt;img&gt;：图片标签。用来载入指定位置的图片，通常可以接收的图片类型：JPG、png、gif、bmp</span><br><span class="line">&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</span><br><span class="line">其中：src：指定图片的具体位置</span><br><span class="line">      alt：其中的内容，作为图片无法载入时，显示的内容。</span><br><span class="line">5）表格标签：table、tr、th、td</span><br><span class="line">&lt;table&gt;：表格标签，所有表格中的行和单元格内容都必须放置在内部。</span><br><span class="line">&lt;tr&gt;:表格行，代表表格一行</span><br><span class="line">&lt;th&gt;:表格头，代表表格的标题行</span><br><span class="line">&lt;td&gt;：表格单元格，代表表格中的每个单元内容</span><br><span class="line">6）列表</span><br><span class="line">有序列表：</span><br><span class="line">&lt;ol&gt;</span><br><span class="line">   &lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br><span class="line">无序列表:</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">   &lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">自定义列表：</span><br><span class="line">&lt;dl&gt;</span><br><span class="line">   &lt;dt&gt;</span><br><span class="line">      &lt;dd&gt;&lt;/dd&gt;</span><br><span class="line">   &lt;/dt&gt;</span><br><span class="line">&lt;/dl&gt;</span><br></pre></td></tr></table></figure></p>
+<p>7)div与span<br>div：块级元素，用来实现页面布局。自身没有任何效果<br>span:内联元素，用做文本容器。<br>8）表单</p>
+<p><form name="表单名" action="URL" method="get/post"><br>默认情况，如果没有声明method属性，缺省值为get</form></p>
+<p><input type=""><br>输入标签，type属性：<br>text:文本框<br>password：密码框<br>checkbox：复选框<br>radio：单选框<br>submit：提交按钮<br>reset：重置按钮<br>button：按钮<br>file:文件上传</p>
+<p><textarea cols="列数" rows="行数">：文件区标签</textarea></p>
+<p>三、网络爬虫—urllib库<br>1、urllib库的基本使用<br>import urllib.request<br>函数格式：urllib.request.openurl(url, data, timeout)<br>参数说明：<br>url：指定的请求网址<br>data：请求时提交给服务器端的数据，如果在openurl中使用了data参数，那么提交方式为post，默认情况下为get。<br>timeout：指定连接url的超时时间，单位为秒。<br>response = urllib.request.openurl()函数返回一个HTTPResponse对象<br>我们可以使用response对象中的相关方法：<br>read()读取响应体中的内容<br>status/getcode()返回响应码<br>reason 返回响应信息的内容<br>info()返回响应头信息<br>geturl()返回请求的url地址<br>2、Request请求对象</p>
+<p>req = urllib.request.Request(url,data,headers,method)<br>参数说明：<br>url：指定的请求网址<br>data：请求时提交给服务器端的数据，如果在openurl中使用了data参数，那么提交方式为post，默认情况下为get。<br>headers：请求对象的头信息，用来将一个爬虫伪装成一个普通的浏览器请求，主要设置user-agent<br>method：请求的方式，默认为get，可以设置为get或post<br>3、urllib.error<br>在urllib库中有三个error对象<br>HTTPError：HTTP访问异常<br>URLError：url地址异常<br>ContentTooShortError：文件大小异常<br>注意，HTTPError是URLError的子类。<br>HTTPError，只有一个属性reason<br>URLError，有code，reason，headers三个属性。<br>4、urllib.robotparser<br>作用：用来解析指定网站的robots.txt文件。用来分析哪些内容是允许抓取，哪些内容是不允许的。<br>四、requests库<br>1、常用方法<br>1）函数格式：requests.get(url,[param], **kvw)<br>参数说明:<br>url：指定爬取的网络地址<br>param：需要传递的参数，参数格式：字典或字节流<br>返回值：response对象<br>属性：<br>status_code:状态码<br>headers:头信息<br>text：抓取到的页面内容<br>encoding：页面的编码格式（从headers获取到）<br>apparent_encoding：页面的编码格式（从网页内容中获取到）<br>content：二进制形式的信息<br>注意：text属性返回的页面信息，是根据encoding来显示的。所以我们在使用requests抓取页面信息时，将encoding属性进行设置，通常设为utf-8。</p>
+<p>get()函数代表了发出一个request请求，而requests.get()表示返回一个response对象</p>
+<p>2）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">requests.request(&apos;GET&apos;,url, **kvw)</span><br><span class="line">requests.request(&apos;HEAD&apos;,url, **kvw)</span><br><span class="line">requests.request(&apos;POST&apos;,url, **kvw)</span><br><span class="line">requests.request(&apos;PUT&apos;,url, **kvw)</span><br><span class="line">requests.request(&apos;PATCH&apos;,url, **kvw)</span><br><span class="line">requests.request(&apos;DELETE&apos;,url, **kvw)</span><br></pre></td></tr></table></figure></p>
+<p>**kvw:控制访问的参数，为可选项<br>params:字典或字节流，作为参数添加到url中（get方法使用）<br>data：字典、字节流或文件对象（post方法使用）<br>json：JSON格式数据，作为request的内容<br>headers：字典，HTTP头信息<br>cookies：字典或cookie jar，存在于request的cookie中<br>auth：元组，支持HTTP认证<br>files：字典类型，传输文件<br>timeout：设定超时时间，秒为单位<br>stream：True/False，默认为True。获取内容立即下载。<br>cert：本地SSL整数路径<br>verfiy：True/False，默认为True。认证SSL开关<br>allow_redirects：True/False,默认为True，重定向开发</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/25/Python爬虫/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-继承、多态、封装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/25/继承、多态、封装/">16、继承、多态、封装</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/25/继承、多态、封装/" class="archive-article-date">
+  	<time datetime="2018-08-25T07:48:21.112Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>继承<br>1）Python中能够实现单继承与多继承。<br>单继承：就是子类只有一个直接父类。<br>多继承：子类有两个及两个以上的直接父类。<br>2）子类继承父类，子类可以继承父类的相关特征。子类继承了父类的方法，如果在多继承情况下，父类出现同名函数，那么子类继承该函数时，根据继承的顺序进行调用。<br>3）super()函数，它指代了当前类的父类。我们可以在子类中调用super函数，用来初始化父类。但是使用super()调用父类的构造函数时，只能对多继承中的第一个父类生效。<br>4)抽象与继承的区别与关系<br>抽象：指对同一类别事物的相似部分进行抽取。抽象我们认为是对具体化对象的相关行为和属性的泛化过程。<br>继承：Python中我们通常认为类就是一个抽象的内容。类本身并不能直接执行，需要通过继承，进行对象的实例化，进而获得具体的对象本身，才能执行相关的功能。<br>也就是说继承其实是抽象的具体化过程。</p>
+<p>5）多继承中，当一个子类继承多个父类时，我们需要如下声明：<br>class SubClass(A,B):<br>其中，A、B是SubClass的父类。那么，如果我们分为两种个情况：<br>第一，子类中没有显式的定义<strong>init</strong>()，那么在实例化子类时调用其父类的构造函数。如果有多个类，都定义了<strong>init()函数，那么它会调用第一个具有</strong>init__()函数的父类。<br>第二，子类中显式的定义理论<strong>init_(),那么实例化子类时不再调用父类的构造函数。此时，如果我们要调用父类的构造函数，有两种方法。<br>1）在子类的构造函数中，显式的调用对应父类的构造函数，例如：<br>A.</strong>init__()<br>2)采用super()函数，super().<strong>init</strong>()或者super(子类，self).<strong>init</strong>()<br>但是如果遇到其多个父类，他们的构造函数同名时，我们根据他们在MRO中的顺序，分别调用他们，例如：<br>class SubClass(B, A):<br>    def <strong>init</strong>(self):<br>        super().<strong>init</strong>()   # 此处调用了父类B<br>        super(B, self).<strong>init</strong>() #此处调用了父类C<br>        print(‘我是子类’)<br>注意，在这里不要看到super就认为是父类，但是在多继承时，实际上super指的是MRO中的下一个类。</p>
+<p>6）封装<br>在Python中，我们针对其内部细节进行封装。通常我们将属性定义为私有类型，意味着在类外无法直接访问。可以通过相关的方法对其进行调用。<br>私有的成员变量和方法，都需要在类内进行定义。所有在类外实现的定义都是公有的，代码如下：<br>class A:<br>    __N = ‘hello’      # 此处是一个私有的类变量</p>
+<pre><code>def __init__(self):
+    self.__name = &apos;tom&apos;
+
+def __method(self):
+    print(&apos;我是私有函数&apos;)
+
+def show(self):
+    self.__method()
+    print(self.__name)
+</code></pre><p>a = A()<br>A.<strong>age = 10       # 此处的</strong>age是一个公有的类变量<br>print(A.__age)</p>
+<p>8）property方法<br>在Python中，我们可以使用property来修饰指定的函数，被修饰后的函数，在类外可以通过对象调用（类似调用变量）</p>
+<p>class Person:<br>    def <strong>init</strong>(self, name, height, weight):<br>        self.<strong>name = name<br>        self.</strong>height = height<br>        self.__weight = weight</p>
+<pre><code>@property
+def bmi(self):
+    return self.__weight / self.__height**2
+</code></pre><p>p = Person()<br>print(p.bmi)  # 此处调用的bmi是Person类中的函数。<br>原理：当类被载入时，首先会载入类的名称和被property修饰的名字到类的命名空间中；然后在类对象进行实例化时，Python解析器会查找是否存在property修饰的名字，如果存在，就不在实例化对象是为其分配内存空间。<br>9）classmethod方法<br>在Python中，我们通常使用classmethod用来修饰一个方法，这个方法就被称为类方法，类方法通常用来操作类变量。类方法和类变量一样，都需要通过类名来调用。<br>class Goods:<br>    __discount = 0.8</p>
+<pre><code>def __init__(self, name, price):
+    self.__name = name
+    self.__price = price
+
+@classmethod
+def change_discount(cls, new_discount): #此处传递的默认参数不是对象参数self，而是类参数cls
+    cls.__discount = new_discount
+
+@classmethod
+def get_discount(cls):
+    return cls.__discount
+</code></pre><p>goods = Goods(‘apple’, 6)<br>print(Goods.get_discount())<br>Goods.change_discount(0.9)<br>print(Goods.get_discount())<br>10)staticmethod方法<br>在Python中，我们使用staticmethod来修饰函数，该函数被称为静态方法，首先，静态方法不需要使用对象参数或类参数作为默认参数。其次，静态方法通常只能调用类变量，而不可以使用成员变量。最后，在类外进行调用时，可以使用类名来调用。</p>
+<p>实例方法、类方法与静态方法的区别<br>实例方法：第一个参数必须是实例对象（self）,通过它来传递实例的属性和方法，只能由实例对象来调用。<br>类方法：使用装饰器@classmethod，第一个参数必须是类对象（cls）,通过它来传递类的属性和方法。可以通过实例对象或类对象来调用，通常使用类对象调用。<br>静态方法：使用装饰器@staticmethod,没有默认参数（self和cls），但是方法体中不能使用类或实例对象的任何属性和方法。可以通过实例对象或类对象进行调用。</p>
+<p>1、类方法和静态方法都可以通过对象实例或者类名来调用。<br>2、类方法主要针对的是类，可以通过继承和重新定义<br>3、静态方法不能被继承，无法被重写，可以被认为是全局函数。静态方法在使用时完全不会用到对象实例本身。静态方法逻辑上属于类，但是不会涉及到类中的属性和方法的操作。</p>
+<p>11）方法重写<br>概念：当子类继承父类时，子类会继承父类所有的公有方法。如果在子类中重写定义一个与父类中同名的方法，我们成为方法的重写（覆盖）。方法重写只需要名字相同即可，与方法的参数个数、顺序无关<br>12）多态与鸭子类型<br>多态：多态一般都是通过继承来实现的，也就是根据不同的对象形态来进行区分。我们在Python中，使用多态时，意味着在编码时变量并不知道所引用的对象具体内容，只有在程序运行时相关对象被实例化后，才能够确定。<br>鸭子类型：在Python中，因为其自身特性并没有对多态进行明确的规定，可以创建一个功能相似，但与原对象无关的、全新对象，来实现程序的松耦合。<br>我们通常在开发中，采用接口的方式来实现。<br>我们认为在一组功能相似，但没有继承关系的对象中，采用接口方式。<br>class Payment:<br>    def payment(self, money):<br>        pass</p>
+<p>class Weixinpay(Payment):<br>    def payment(self, money):<br>        print(‘微信支付了{0}元’.format(money))</p>
+<p>class Alipay(Payment):<br>    def payment(self, money):<br>        print(‘支付宝支付了{0}元’.format(money))</p>
+<p>class My(Payment):<br>    def payment(self, money):<br>        print(‘支付了{0}元’.format(money))</p>
+<p>此例，我们可以看到：<br>第一，通过继承，实现了多态，即三种支付方式不同的形态<br>第二，我们观察到，微信支付、支付宝、个人支付，三者之间没有任何继承关系，但是都具有相同的支付功能，我们可以认为这种形式就是鸭子类型<br>第三，因为三种支付方式，分别继承了接口类Payment，都重新了相关的支付方法payment()</p>
+<p>运算符重载<br>1、<strong>getitem</strong>：索引迭代<br>在Python，可迭代化对象在使用循环迭代时，都会默认的调用<strong>iter</strong>,如果没有next()方法，会调用<strong>getitem</strong>方法。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/25/继承、多态、封装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-面向对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -264,7 +596,7 @@ def getName(self):
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/09/hello-world/">Hello World</a>
+      <a class="article-title" href="/2018/07/09/hello-world/">python基础、变量、 基本数据类型</a>
     </h1>
   
 
@@ -277,118 +609,36 @@ def getName(self):
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="python-基础语法"><a href="#python-基础语法" class="headerlink" title="python 基础语法"></a>python 基础语法</h2><h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><p>‘’’<br>1、编码：<br>在开发过程，对应不同的语言使用不同的字符编码。<br>英文    ISO-8859-1<br>中文    gbk或gb2312<br>目前Python为了统一编码格式，在3.0以上的版本使用了utf-8编码<br>2、print()函数<br>语法格式：print(value,…,sep=’ ‘,end=’\n’)<br>其中，value代表我们要输出的内容，可以是字符串，可以是数值等内容<br>sep代表输出多个值之间的间隔符，默认使用空格隔开。我们可以重新定义间隔符，比如采用：#、，等<br>end代表输出语句的结束标识，默认使用了换行，我们可以重新定义其他内容，其输出的内容将不再进行换行操作。<br>3、print()函数的基本使用<br>print()常用输出方式：<br>print(‘hello ‘)、print(123456)等<br>参数格式输出<br>%s：代表了字符串内容，其中<br>print(‘welcome %s’%Beijing)=&gt;welcome Beijing<br>print(‘welcome %10.3s’%Beijing)=&gt;welcome       Bei,输出结果为10个字符其中包含字符串Beijing中前三个，其余用空格填充<br>%d：代表了整数内容，其中<br>print(‘price %d’%10)=&gt;price 10<br>print(‘price %d’%10.5) =&gt; price 10<br>print(‘price %3d’%10000)=&gt; price 10000<br>注意这里面的3d表示输出一个宽度为3个单元的数值，如果数值长度小于三，那么数值靠右对齐。<br>-3d表示，数值反向对齐（靠左对齐）<br>%f：代表了浮点数内容(注意，在Python中浮点数是一个近似值，所以结果也是近似)<br>print(‘price %f’%10.2)=&gt;10.200000<br>print(‘price %.1f’%10.2) =&gt; 10.2<br>print(‘prince %.1f’%10.58) = &gt;10.6 当取一位小数位的时候，将小数位第二位进行舍入操作，但是Python的中间值不是5，导致当小数位第二位是5时，直接被舍去<br>print(‘%5.1f’%10.3) =&gt; 10.3<br>输出一个宽度为5的单位，其中整数3位，小数部分1位，小数点占一位<br>4、格式化输出<br>在Python3.0之后，推荐使用{0}来代替前期的%d,%s,%f等一系列的格式化参数，采用了字符串的format函数进行处理。写法如下：<br>print(‘welcome {0}同学，加入{1}班级’.format(‘tom’,’Python3班’))<br>其中{0}，{1}分别映射format()中的’tom’和’Python3班’，如果前面占位符中的索引值变化，那么他们映射的值也随之变化</p>
+        <h2 id="python-基础语法"><a href="#python-基础语法" class="headerlink" title="python 基础语法"></a>python 基础语法</h2><h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><p>‘’’<br>1、编码：<br>在开发过程，对应不同的语言使用不同的字符编码。<br>英文    ISO-8859-1<br>中文    gbk或gb2312<br>目前Python为了统一编码格式，在3.0以上的版本使用了utf-8编码<br>2、print()函数<br>语法格式：print(value,…,sep=’ ‘,end=’\n’)<br>其中，value代表我们要输出的内容，可以是字符串，可以是数值等内容<br>sep代表输出多个值之间的间隔符，默认使用空格隔开。我们可以重新定义间隔符，比如采用：#、，等<br>end代表输出语句的结束标识，默认使用了换行，我们可以重新定义其他内容，其输出的内容将不再进行换行操作。<br>3、print()函数的基本使用<br>print()常用输出方式：<br>print(‘hello ‘)、print(123456)等<br>参数格式输出<br>%s：代表了字符串内容，其中<br>print(‘welcome %s’%Beijing)=&gt;welcome Beijing<br>print(‘welcome %10.3s’%Beijing)=&gt;welcome       Bei,输出结果为10个字符其中包含字符串Beijing中前三个，其余用空格填充<br>%d：代表了整数内容，其中<br>print(‘price %d’%10)=&gt;price 10<br>print(‘price %d’%10.5) =&gt; price 10<br>print(‘price %3d’%10000)=&gt; price 10000<br>注意这里面的3d表示输出一个宽度为3个单元的数值，如果数值长度小于三，那么数值靠右对齐。<br>-3d表示，数值反向对齐（靠左对齐）<br>%f：代表了浮点数内容(注意，在Python中浮点数是一个近似值，所以结果也是近似)<br>print(‘price %f’%10.2)=&gt;10.200000<br>print(‘price %.1f’%10.2) =&gt; 10.2<br>print(‘prince %.1f’%10.58) = &gt;10.6 当取一位小数位的时候，将小数位第二位进行舍入操作，但是Python的中间值不是5，导致当小数位第二位是5时，直接被舍去<br>print(‘%5.1f’%10.3) =&gt; 10.3<br>输出一个宽度为5的单位，其中整数3位，小数部分1位，小数点占一位<br>4、格式化输出<br>在Python3.0之后，推荐使用{0}来代替前期的%d,%s,%f等一系列的格式化参数，采用了字符串的format函数进行处理。写法如下：<br>print(‘welcome {0}同学，加入{1}班级’.format(‘tom’,’Python3班’))<br>其中{0}，{1}分别映射format()中的’tom’和’Python3班’，如果前面占位符中的索引值变化，那么他们映射的值也随之变化</p>
 <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><hr>
 <p>1）变量的声明：在Python没有变量类型，直接进行变量的声明，比如：i = 10<br>2)变量的赋值：在python中，有两种赋值方式<br>第一种，单个变量赋值  name = ‘tom’<br>第二种，多个变量同时赋值  name, age, sex = ‘tom’， 23， ‘男’</p>
 <p>变量在内存中的存在情况<br>1）python中的变量，在声明和赋值时，不仅声明了变量的名字同时还为这个变量指向了内存中的地址，该地址用来存储变量的值。<br>2）python中整数、字符串、浮点数等其本身都属于常量，所以当赋值给一个变量时，如：<br>i = 10意味着将10这个常量在内存中的地址指向，因此，i = 10 ，j = 10 使用id(i),id(j）我们法向他们的id是相同的。<br>因为，他们的值10在内存中的地址时相同的。</p>
 <p>3）变量与内存地址<br>当我们声明一个变量时，对其进行赋值。实际上就是将变量值所在的内存地址，赋值给该变量。也就是说这个变量指向其值所在的内存地址。<br>当我们改变变量的值的时候，说白了就是将变量指向的内存地址进行变化。<br>举例：我们日常购买商品，快递员通过你的邮寄地址将快递送到你本人手里。可以理解为，快递员拥有指向你这个变量的地址，通过地址，将快递商品赋值给你。<br>4）变量与常量<br>变量：我们认为其内容是临时结果，可变的。供后续的程序代码进行调用。<br>常量：我们认为其内容是不变的，或者在程序运行的过程中也不发生改变。<br>在Python中，我们通过大写变量名，来表明这是一个常量，比如：CARDID = ‘12048377293’<br>5)变量命名规则<br>首先，Python中的变量命名，必须由字母、数字或下划线三者组成，不能有其他的字符出现<br>其次，变量名的首个字符，必须是字母或下划线<br>然后，Python中的关键字不能作为变量名来使用，常用的关键字诸如：if,for,is,none等等。<br>Python是严格区分大小写的语言，其中A = 10 ，a = 10。我们认为这是两个不同的变量</p>
 <h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><hr>
 <p>1）常见的数据类型：<br>整型<br>浮点型<br>布尔型<br>复数型<br>字符串型<br>我们工作中常用到整型、字符串<br>2）整型<br>我们通常根据计算机中数据编码格式，将整型分为：二进制、八进制、十进制、十六进制四种类型。<br>进制间的转换<br>二进制转十进制：bin(int)=&gt;将十进制转为二进制   int(bin)=&gt;将二进制转为十进制<br>八进制转十进制：oct(int)=&gt;将十进制转为八进制   int(oct)=&gt;将八进制转为十进制<br>十六进制转十进制： hex(int)=&gt;将十进制转为十六进制，int(hex)=&gt;将十六进制转为十进制</p>
-<p>3）运算符<br>第一，算术运算符：+、-、<em>、/<br>在python中默认的数据类型时浮点型，因此在执行算术运算时5/2=2.5，而不是2.<br>%：两数进行求余运算，如果分子大于分母，得余数；如果分子小于分母，直接得分子。注意：只有分子除尽分母时，结果才返回0<br>//：两数相除取整数，注意，此处得到的整数，为结果的整数部分不进行四舍五入操作。<br><strong>：A</strong>B 数A连续相乘B次，也可以说数A 的B次幂<br>补充：<br>1、对于数值运算的四舍五入操作<br>math包中的floor()和ceil()函数<br>import math<br>math.floor(3/2) =&gt;1   等同于 3//2    只舍不入<br>math.ceil(3/2) =&gt;2    此处，只要有小数位就进位，不管小数部分是否大于等于5  只入不舍<br>round()函数进行四舍五入操作，round(数值[,保留小数位数])<br>round(1.5)=&gt;2<br>round(1.2)=&gt;1<br>round(1,4,1)=&gt;1.4  意味着保留小数点后一位<br>2、求幂运算<br>pow(2,3) =&gt;8 等同于2**3<br>3、求绝对值<br>abs(-10) =&gt; 10<br>4、求两数相除的商与余数<br>divmod(5,3) =&gt;(1,2)    类似5%3=&gt;2<br>5、运算符<br>i = 10<br>i = i + 5  等同于  i+=5<br>i = i - 5  等同于  i-=5<br>i = i </em> 5  等同于  i*=5<br>i = i / 5  等同于  i/=5<br>i = i//5   等同于  i//=5<br>i = i <strong> 2 等同于  i</strong>=2<br>i = i % 3  等同于  i%=3</p>
+<p>3）运算符<br>第一，算术运算符：+、-、<em>、/<br>在python中默认的数据类型时浮点型，因此在执行算术运算时5/2=2.5，而不是2.<br>%：两数进行求余运算，如果分子大于分母，得余数；如果分子小于分母，直接得分子。注意：只有分子除尽分母时，结果才返回0<br>//：两数相除取整数，注意，此处得到的整数，为结果的整数部分不进行四舍五入操作。<br><strong>：A</strong>B 数A连续相乘B次，也可以说数A 的B次幂<br>补充：<br>1、对于数值运算的四舍五入操作<br>math包中的floor()和ceil()函数<br>import math<br>math.floor(3/2) =&gt;1   等同于 3//2    只舍不入<br>math.ceil(3/2) =&gt;2    此处，只要有小数位就进位，不管小数部分是否大于等于5  只入不舍<br>round()函数进行四舍五入操作，round(数值[,保留小数位数])<br>round(1.5)=&gt;2<br>round(1.2)=&gt;1<br>round(1,4,1)=&gt;1.4  意味着保留小数点后一位<br>2、求幂运算<br>pow(2,3) =&gt;8 等同于2**3<br>3、求绝对值<br>abs(-10) =&gt; 10<br>4、求两数相除的商与余数<br>divmod(5,3) =&gt;(1,2)    类似5%3=&gt;2<br>5、运算符<br>i = 10<br>i = i + 5  等同于  i+=5<br>i = i - 5  等同于  i-=5<br>i = i \</em> 5  等同于  i*=5<br>i = i / 5  等同于  i/=5<br>i = i//5   等同于  i//=5<br>i = i <strong> 2 等同于  i</strong>=2<br>i = i % 3  等同于  i%=3</p>
 <p>4)布尔型<br>1、python中布尔型分为True和False两种，但是在实际操作中我们也可以将其与1和0等同。<br>2、布尔型常用在逻辑运算和判断条件中，作为结果来使用。但是也可以参与算术运算，当进行算术运算时，True作为1、False作为0参与运算。<br>3、a = True     a + 1 =&gt; 2<br>b = False b + 1 =&gt;1<br>a + b =&gt; 1<br>注意：通常我们在python，不能将布尔型参与算术运算的。布尔型一般参加比较运算或逻辑运算，其返回值还是布尔型。<br>布尔型求非： not<br>not a =&gt; False<br>not b =&gt; True</p>
 <p>5)精确的十进制<br>在python中，我们通过阅读官方文档了解到，浮点数是一种近似值的表示，因此直接使用浮点数时常常出现精度丢失或不匹配情况发生。<br>python中提出了Decimal对象来进行解决，通过引入 import decimal生成一个decimal对象，将浮点数转换为decimal类型，可以支持完成对应的算术运算。例如：</p>
 <p>from decimal import Decimal   # 引入decimal包中的Deciaml对象<br>f1 = 12.4556<br>f2 = 24.3<br>c = Decimal.from_float(f1)    # 将浮点数转换为decimal对象<br>a = Decimal(f1).quantize(Decimal(‘0.00’)) #将浮点数转换为decimal对象，同时指定该数值的精度，保留小数点后两位，并自动完成四舍五入。<br>b = Decimal(f2).quantize(Decimal(‘0.00’))<br>print((a*b).quantize(Decimal(‘0.00’)))</p>
-<p>6）字符串<br>1、字符串声明，可以使用’’也可以使用””，他们都可以表示字符串内容。<br>2、比较运算符：&gt;、&lt;、==、!=、&gt;=、&lt;=<br>他们的返回值为布尔型，即True或False<br>字符串进行比较时，采用对应位置的逐字母进行比较，首先将字母转成ASCII码，然后根据码值进行比较大小。如果一旦出现一方的字母码值大于另一方，就结束比较。<br>提示：在键盘上，所有的字符的ASCII码值都小于a,b,c…..这些字母的码值<br>只有这四个字符的ASCII码值大于字母z的码值：’{‘、’|’、’}’、’~’，它们的码值从123-126<br>3、我们使用input()，允许进行交互式输入，默认input()输入的值类型为str字符串类型。<br>4、字符串常用的方法<br>1）find() 查找<br>函数格式：str.find(子字符串[,开始索引位，结束索引位])<br>返回值：如果查找成功，则返回所查找内容在字符串中的索引位置，如果没有找到，返回-1.<br>注意：如果所查找的内容中，有多个相同的字母，只会返回第一个字母所在的索引位。比如：<br>str1 = ‘hello’<br>str1.find(‘ll’) =&gt; 2  该例中，’ll’在字符串中出现了两次，但只会返回第一次出现的索引位置。<br>为什么查找时，没有找到目标字符串的情况下会返回-1。其实，在find操作中，会对字符串进行扫描从字符串的索引位0开始，一直到字符串结尾，如果在字符串最后一位没有找到匹配的内容，将指向字符串结束符(EOF)，该结束符为-1。所以找不到时，find返回值为-1.<br>更多用法：<br>string1 = ‘apple,banana,apple,apple’</p>
+<p>6）字符串<br>1、字符串声明，可以使用’’也可以使用””，他们都可以表示字符串内容。<br>2、比较运算符：&gt;、&lt;、==、!=、&gt;=、&lt;=<br>他们的返回值为布尔型，即True或False<br>字符串进行比较时，采用对应位置的逐字母进行比较，首先将字母转成ASCII码，然后根据码值进行比较大小。如果一旦出现一方的字母码值大于另一方，就结束比较。<br>提示：在键盘上，所有的字符的ASCII码值都小于a,b,c…..这些字母的码值<br>只有这四个字符的ASCII码值大于字母z的码值：’{‘、’|’、’}’、’~’，它们的码值从123-126<br>3、我们使用input()，允许进行交互式输入，默认input()输入的值类型为str字符串类型。<br>4、字符串常用的方法<br>1）find() 查找<br>函数格式：str.find(子字符串[,开始索引位，结束索引位])<br>返回值：如果查找成功，则返回所查找内容在字符串中的索引位置，如果没有找到，返回-1.<br>注意：如果所查找的内容中，有多个相同的字母，只会返回第一个字母所在的索引位。比如：<br>str1 = ‘hello’<br>str1.find(‘ll’) =&gt; 2  该例中，’ll’在字符串中出现了两次，但只会返回第一次出现的索引位置。<br>为什么查找时，没有找到目标字符串的情况下会返回-1。其实，在find操作中，会对字符串进行扫描从字符串的索引位0开始，一直到字符串结尾，如果在字符串最后一位没有找到匹配的内容，将指向字符串结束符(EOF)，该结束符为-1。所以找不到时，find返回值为-1.<br>更多用法：<br>‘’’ py<br>string1 = ‘apple,banana,apple,apple’<br>string1.find(‘apple’)<br>0<br>string1.find(‘apple’,5)<br>13<br>string1.find(‘apple’,7,20)<br>13<br>string1.find(‘apple’,14,20)<br>-1<br>string1.find(‘apple’,14,24)<br>19<br>‘’’<br>对比：<br>index() 返回指定字符的索引位<br>函数格式：index(子字符串[,开始索引位，结束索引位])<br>返回值：如果找到指定的字符串，则返回其索引位；如果找不到就报错ValueError</p>
+<p>find()与index()函数的区别<br>第一，两者在执行结果时类似的，如果找到指定的字符就会返回其索引位<br>第二，find()如果找不到指定的字符时，返回-1；而index()找不到指定的字符，raise ValueError.<br>第三，从效率上来讲，index的查询速度要优于find,因为在python中对于像字符串这样的有序数据类型，会产生一个索引对象来自动维护其序列，find()函数不管是否有这样的序列，都需要在字符串本身进行逐一查找，而index()会通过这个索引对象的映射方式，来快速找到对应的索引位。<br>2）split() 拆分字符串<br>函数格式：str.split([分隔符])<br>返回值：根据指定的分隔符，对字符串进行拆分，返回一个列表；如果不指定分隔符，那么会将整个字符串，作为列表的一个元素。例如：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string1 = <span class="string">'tv,pc,notebook,phone'</span></span><br><span class="line">string1.split(<span class="string">','</span>)</span><br><span class="line">[<span class="string">'tv'</span>, <span class="string">'pc'</span>, <span class="string">'notebook'</span>, <span class="string">'phone'</span>]</span><br><span class="line">string1.split()</span><br><span class="line">[<span class="string">'tv,pc,notebook,phone'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>注意：split中的分隔符，我们根据字符串中的实际情况而定。如果使用了不正确的分隔符，str.split(‘错误分隔符’)操作结果str.split(),会将整个字符串作为列表的一个元素。<br>3）strip() 字符串左右两端去除指定字符（默认情况，去除空格）<br>函数格式：str.strip([指定字符])<br>返回值：根据指定的字符，对字符串进行两端去除其内容，返回一个新的字符串。如果字符串中间有空格或指定字符，那么该函数不起作用。如果指定的字符在字符串左右两端不存在，那么将返回字符串本身。<br>例如：<br>缺省情况<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">string1 = <span class="string">'  hello world  '</span></span><br><span class="line">string1.strip()</span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line">print(string1)</span><br><span class="line">hello world  </span><br><span class="line"></span><br><span class="line">指定字符</span><br><span class="line">string1 = <span class="string">'awelcom to zhengzhoua'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>string1.strip(<span class="string">'a'</span>)</span><br><span class="line"><span class="string">'welcom to zhengzhou'</span></span><br></pre></td></tr></table></figure></p>
+<p>注意：<br>1）字符串类型，一旦被声明赋值后，其内容是不可被改变的，如果需要改变原字符串变量的值，必须对其进行重新赋值。<br>2）如果指定字符内容为一个字符序列，那么意味着使用strip去除左右两端指定字符时，只要符合字符序列中的某一位，就进行去除<br>string1 = ‘ awelcom to zhengzhouab’</p>
 <blockquote>
 <blockquote>
 <blockquote>
-<p>string1.find(‘apple’)<br>0<br>string1.find(‘apple’,5)<br>13<br>string1.find(‘apple’,7,20)<br>13<br>string1.find(‘apple’,14,20)<br>-1<br>string1.find(‘apple’,14,24)<br>19</p>
+<p>string1.strip(‘ ab’)<br>‘welcom to zhengzhou’</p>
 </blockquote>
 </blockquote>
 </blockquote>
-<p>对比：<br>index() 返回指定字符的索引位<br>函数格式：index(子字符串[,开始索引位，结束索引位])<br>返回值：如果找到指定的字符串，则返回其索引位；如果找不到就报错ValueError</p>
-<p>find()与index()函数的区别<br>第一，两者在执行结果时类似的，如果找到指定的字符就会返回其索引位<br>第二，find()如果找不到指定的字符时，返回-1；而index()找不到指定的字符，raise ValueError.<br>第三，从效率上来讲，index的查询速度要优于find,因为在python中对于像字符串这样的有序数据类型，会产生一个索引对象来自动维护其序列，find()函数不管是否有这样的序列，都需要在字符串本身进行逐一查找，而index()会通过这个索引对象的映射方式，来快速找到对应的索引位。<br>2）split() 拆分字符串<br>函数格式：str.split([分隔符])<br>返回值：根据指定的分隔符，对字符串进行拆分，返回一个列表；如果不指定分隔符，那么会将整个字符串，作为列表的一个元素。例如：<br>string1 = ‘tv,pc,notebook,phone’</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>string1.split(‘,’)<br>[‘tv’, ‘pc’, ‘notebook’, ‘phone’]<br>string1.split()<br>[‘tv,pc,notebook,phone’]<br>注意：split中的分隔符，我们根据字符串中的实际情况而定。如果使用了不正确的分隔符，str.split(‘错误分隔符’)操作结果str.split(),会将整个字符串作为列表的一个元素。<br>3）strip() 字符串左右两端去除指定字符（默认情况，去除空格）<br>函数格式：str.strip([指定字符])<br>返回值：根据指定的字符，对字符串进行两端去除其内容，返回一个新的字符串。如果字符串中间有空格或指定字符，那么该函数不起作用。如果指定的字符在字符串左右两端不存在，那么将返回字符串本身。<br>例如：<br>缺省情况<br>string1 = ‘  hello world  ‘<br>string1.strip()<br>‘hello world’<br>print(string1)<br>  hello world  </p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>指定字符<br>string1 = ‘awelcom to zhengzhoua’</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>string1.strip(‘a’)<br>‘welcom to zhengzhou’<br>注意：<br>1）字符串类型，一旦被声明赋值后，其内容是不可被改变的，如果需要改变原字符串变量的值，必须对其进行重新赋值。<br>2）如果指定字符内容为一个字符序列，那么意味着使用strip去除左右两端指定字符时，只要符合字符序列中的某一位，就进行去除<br>string1 = ‘ awelcom to zhengzhouab’<br>string1.strip(‘ ab’)<br>‘welcom to zhengzhou’</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>4）replace()替换函数<br>函数格式：str.replace(old,new[,max])<br>返回值：将指定字符串（old）替换为新字符串（new）,最大可以替换max次。替换完成后，返回一个新字符串。<br>注意：此处的max参数，主要用来指定替换的次数，如果该参数缺省，表示替换里面所有符合条件的字符串。<br>例如：<br>string1 = ‘honor,oppo,vivo,apple,oppo,oppo’</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>old_str = ‘oppo’<br>new_str = ‘xiaomi’<br>string1.replace(old_str, new_str)     # 替换所有的oppo<br>‘honor,xiaomi,vivo,apple,xiaomi,xiaomi’<br>string1.replace(old_str, new_str,2)   #替换指定次数，即两处oppo<br>‘honor,xiaomi,vivo,apple,xiaomi,oppo’</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>4）replace()替换函数<br>函数格式：str.replace(old,new[,max])<br>返回值：将指定字符串（old）替换为新字符串（new）,最大可以替换max次。替换完成后，返回一个新字符串。<br>注意：此处的max参数，主要用来指定替换的次数，如果该参数缺省，表示替换里面所有符合条件的字符串。<br>例如：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">string1 = <span class="string">'honor,oppo,vivo,apple,oppo,oppo'</span></span><br><span class="line">old_str = <span class="string">'oppo'</span></span><br><span class="line">new_str = <span class="string">'xiaomi'</span></span><br><span class="line">string1.replace(old_str, new_str)     <span class="comment"># 替换所有的oppo</span></span><br><span class="line"><span class="string">'honor,xiaomi,vivo,apple,xiaomi,xiaomi'</span></span><br><span class="line">string1.replace(old_str, new_str,<span class="number">2</span>)   <span class="comment">#替换指定次数，即两处oppo</span></span><br><span class="line"><span class="string">'honor,xiaomi,vivo,apple,xiaomi,oppo'</span></span><br></pre></td></tr></table></figure>
 <p>5）isalnum()、isalpha()、isdigit()<br>函数格式：str.isalnum()    判断字符串内容，是否有数字或字母组成<br>          str.isalpha()    判断字符串内容，是否由字母组成<br>          str.isdigit()    判断字符串内容，是否由数字组成<br>返回值：如果符合条件，返回True；如果不符合，返回False。</p>
 <p>6）[] 字符串运算符<br>使用方法：str[索引位] =&gt; 返回指定索引位的字符，<br>索引位有两种表示方式：<br>string1 = hello world<br>第一种：string1[0] =&gt; h    到string1[10] =&gt; d<br>第二种：string1[-1] =&gt; d   到string1[-11] =&gt; h<br>切片操作:<br>格式：str[start,end,step]<br>start：代表切片开始的索引位<br>end: 代表切片结束的索引位（但是不会输出该索引位指向的字符）<br>step：代表每隔次几个字符个数截取一个</p>
 <p>string1 = hello world<br>string1[0:3] =&gt; hel   从索引位为0的字符开始，到索引位3结束，但不包括索引位3所指向的字符。<br>string1[2:4] =&gt; ll<br>string1[0:-1] =&gt; hello worl<br>string1[0:8:2] =&gt; hlow</p>
 <p>str1[:]  =&gt; ‘hello world’ 等于将字符串进行复制<br>str1[:5] =&gt; ‘hello’       如果没有标明开始索引位，默认从0开始<br>str1[::] =&gt; ‘hello world’  等同于str1[:]</p>
 <p>使用步长，实现字符串反转<br>string1[-1::-1]  =&gt;dlrow olleh    从索引位-1开始，一直到字符串结束，反向输出字符<br>但是下列操作，会返回一个空字符串：<br>string1[-1:4]  =&gt; ‘’<br>string1[-1:-5] =&gt; ‘’</p>
-<p>7）连接符与重复操作符<br>+：在字符串中使用时，作为连接两个字符串，并返回一个新字符串的作用来使用。<br><em>：重复操作指定的次数，即将字符串重复输出N次。返回一个新字符串。<br>注意：在重复操作中，必须遵循：字符串</em>正整数这样的格式，如果数值不是正整数，其结果返回一个空字符串，如果不是数值类型，程序报错。<br>8）in运算符<br>用来检测指定的内容，是否在字符串中，如果存在则返回True，反之返回False<br>例如:<br>string1 = ‘hello world’</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>substr = ‘e’<br>substr in string1<br>True<br>substr = ‘ll’<br>substr in string1<br>True<br>substr = ‘wr’<br>substr in string1<br>False</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h3 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h3><hr>
-<p>1）条件语句<br>单判断：<br>if 条件:<br>   代码<br>双分支：<br>if 条件：<br>   代码<br>else:<br>   代码<br>多分支：<br>if 条件：<br>   代码<br>elif 条件：<br>   代码<br>elif 条件：<br>   代码<br>…<br>else:<br>   代码</p>
-<p>2）逻辑运算符： and、or、not<br>and:左右两端都是布尔型，其结果也为布尔型。当左右两端的值都为True，其结果才为True，有一方为False，其结果一定为False。<br>or:左右两端都是布尔型，其结果也为布尔型。当左右两端的值有一方为True时，其结果就为True，只有在双方都为False时，其结果才为False。<br>not：属于单目运算，其结果也是布尔型。其作用就是求反，如果变量为True，结果为False，如果为False，其结果为True。<br>逻辑运算、比较运算常用在条件中使用。同时，这两种运算符经常配合使用。</p>
-<p>3）循环控制语句<br>for循环<br>第一种：（推荐）<br>for 变量 in 集合：<br>    代码<br>说明：这种循环方式，我们称为快速迭代循环，能够对集合数据进行遍历。<br>注意：这种方式只能用在集合数据上，比如：字符串、列表、元组、字典等内容。<br>例如：<br>string1 = ‘hello world’<br>for item in string1:<br>    print(item)<br>h e l l o  w o r d<br>第二种：传统式，配合range()函数使用。通过range()函数指定了循环的范围。<br>for i range(循环次数):<br>    代码</p>
-<p>说明：这种循环方式，采用指定循环次数，对目标集合进行遍历。其做法主要是让循环与集合的下标同步，在循环次数时一同取出集合指定下标的对应值。<br>range()函数：<br>函数格式：<br>range(stop) :缺省情况下，表示从0开始，循环n次<br>range(star,stop[,step])<br>其中，star：循环开始的值，stop：循环次数，step：循环步长。注意此处循环，会根据stop中的值循环规定的次数，但是显示时会从start位置开始。<br>例如：<br>for i in range(3,10):<br>    print(i,end=’ ‘)<br>3 4 5 6 7 8 9<br>for i in range(5,10):<br>    print(i,end=’ ‘)<br>5 6 7 8 9<br>range(1,10)  </p>
-<p>for循环的常用方式：嵌套<br>for i in range(次数):</p>
-<pre><code>for j in range(次数):
-</code></pre><p>注意：在这种嵌套表示的过程中，变量的位置尤为重要，通用原则为：如果变量的值需要通过外层循环来获取或生成，那么我们可以将其设为全局变量，即与外层循环for同等级的变量，如果变量需要在内层循环中生成或获取，我们通常会在外循环中声明，即与内循环同级。<br>while循环<br>格式：while 条件：<br>           代码<br>break与continue<br>break：当满足指定条件时，break表示中断（中止）此循环，如果循环外部还有其他代码则继续向下执行。<br>continue：当满足指定条件时，continue表示结束本次循环，开始下一次循环。注意continue并没有退出循环。<br>同时，这两个关键字都是必须配合循环语句来使用，不能单独用在其他地方，比如：if</p>
-<h3 id="组合数据类型-列表（list）"><a href="#组合数据类型-列表（list）" class="headerlink" title="组合数据类型  列表（list）"></a>组合数据类型  列表（list）</h3><hr>
-<p>1）列表（list）:<br>一、有序集合；可以添加或删除，长度随之变；存储任意类型（数值、字符串）；可以使用循环遍历<br>二、声明与赋值<br>格式：list1=[1,2,3,4]<br>list2=[‘q’,’s’,’2’]<br>list3=[1,’q’,3]<br>例如：<br>for i in list1:<br>    print(i,end=’ ‘)<br>1 2 3 4<br>2、声明一个空列表，后需添加元素<br>list1=list2()<br>此时，会生成空列表即[],长度为0，里面没有任何值<br>3、列表的操作<br>1）增加元素<br>第一种，append(),即在后面加一个元素,或整个列表，改变原列表内容</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>list1=[1,2,3,4]<br>list2=[5]<br>list1.append(7)<br>print(list1)<br>[1, 2, 3, 4, 7]<br>第二种，extend()，即在后面加一个列表内容，改变原列表内容<br>print(list1)<br>[1, 2, 3, 4, [‘a’, ‘s’]]<br>list1.extend(list2)<br>print(list1)<br>[1, 2, 3, 4, [‘a’, ‘s’], ‘a’, ‘s’]<br>第三种，使用‘+’运算符，连接两个列表，得到新的列表，原列表不变<br>list1=[1,2,3,4]<br>list2=[5,6,7]<br>list1+list2<br>[1, 2, 3, 4, 5, 6, 7]<br>第四种，使用insert(),对列表指定位置进行插入操作，改变原列表内容<br>比较耗费内存<br>print(list1)<br>[1, 2, 3, 4]<br>print(list2)<br>[5, 6, 7]<br>list1.insert(2,list2)<br>print(list1)<br>[1, 2, [5, 6, 7], 3, 4]<br>格式：list.insert（idx,元素）idx:插入索引位<br>返回值长度加1<br>2）修改元素<br>通过索引位，找到指定列表，重新赋值<br>list1=[1,2,3,4]<br>list1[2]<br>3<br>list1[2]=’s’<br>print(list1)<br>[1, 2, ‘s’, 4]<br>3）删除元素<br>1、找到指定元素，长度减1<br>print(list1)<br>[1, 2, ‘s’, 4]<br>list1.remove(1)<br>print(list1)<br>[2, ‘s’, 4]<br>2、pop()的两种模式<br>list.pop():默认模式，从列表的尾部弹出一个元素<br>返回值：返回所弹出的元素本身，如果列表为空，报错，提示列表为空<br>list.pop(indx):直接输入列表元素，与remove相似，但会有元素返回<br>3、del删除（是命令不是函数）<br>del list[3:5]    删除片段，即删除索引位第3位，第4位<br>del list1        直接删除list1，释放内存<br>del list1[indx]  删除指定索引位对应的元素<br>列表乘法<br>[1,2,3,4]*2<br>[1,2,3,4,1,2,3,4]<br>del与clear()的区别<br>del list VS list.clear()<br>1、del 可以将列表的内容进行删除，同时将列表所占内存进行释放。<br>2、clear()只是将列表中的内容进行清空，原列表内容为空。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>+与<em>运算符<br>在列表中我们使用+运算符，可以将两个列表进行连接，生成一个新的列表。<br>比如：list1 = [1,2,3]  list2 = [4,5,6]  list1+list2=&gt;[1,2,3,4,5,6]<br>使用</em>运算符，可以将目标列表的内容重复N次，并生成一个新的列表。<br>比如：list1 = [1,2,3] list1*2=&gt;[1,2,3,1,2,3]</p>
-<p>max()与min()<br>函数格式：max(list)、min(list)<br>返回值：返回该列表中最大值或最小值。<br>注意：该函数在使用时，必须要求所统计的列表中元素的数据类型要一致。不支持多数据类型，数值型根据数值本身大小取值，字符串类型根据字母的ASCII码值取值，布尔值根据对应的1、0取值。</p>
-<p>sum()<br>函数格式：sum(list)<br>返回值：将列表中所用的数值进行求和运算，返回结果。注意，该函数只能用于数值型列表。<br>sort()排序<br>函数格式：list.sort()、list.sort(reverse=True)<br>返回值：默认情况下，将原列表中元素按照升序进行排序,<br>如果设置了反转参数为True，那么将原列表中的元素按照降序排列</p>
-<p>sorted()排序<br>函数格式：sorted(list)、sorted(list,reverse=True)<br>返回值：默认情况下，将原列表中元素按照升序进行排序,<br>如果设置了反转参数为True，那么将原列表中的元素按照降序排列<br>注意：上面两种排序函数，其中第一个属于列表自身的排序方法，而第二种属于python内置的排序方法，也就是说第二种可以应用在包括列表在内多种集合排序。</p>
-<p>count()计数函数<br>函数格式：list.count(元素)<br>返回值：返回指定元素在列表中出现的次数</p>
-<p>in 关键字<br>判断指定的元素是否在列表中存在，如果存在返回True，否在返回False</p>
-<p>index()检索函数<br>函数格式：list.index(元素)<br>返回值：返回该元素在列表中的索引位置，如果不存在报错。</p>
-<p>常用数据类型的转换<br>字符串转为整型：int(str)<br>函数格式：int(str)<br>返回值：将字符型数值转为整数<br>int(‘3’) =&gt; 3<br>字符串转为浮点型:float(str)<br>函数格式：float(str)<br>返回值：将字符型浮点数转为浮点数<br>float(‘2.4’) =&gt; 2.4<br>数值转为字符串：str(int)、str(float)<br>函数格式：str(int)、str(float)<br>返回值：将整数或浮点数，转为字符型数值<br>str(2) =&gt; ‘2 ‘    str(2.4) =&gt; ‘2.4’<br>字符串转为列表：list(str)<br>函数格式：list(str)<br>返回值：将指定的字符串，按照元素顺序逐一转为列表<br>string1 = ‘hello world’<br>list1 = list(string1)<br>列表比较运算符操作<br>相当于列表使用普通的比较运算符<br>import operator<br>operator.ge()         大于等于   &gt;=<br>operator.gt()         大于       &gt;<br>operator.eq()       等于         ==<br>operator.ne()        不等于      !=<br>operator.le()           小于等于 &lt;=<br>operator.lt()          小于      &lt;<br>格式：operator.ge(列表1,列表2)<br>返回值：如果符合条件，返回True，反之，返回False<br>[‘h’, ‘e’, ‘l’, ‘l’, ‘o’, ‘ ‘, ‘w’, ‘o’, ‘r’, ‘l’, ‘d’]<br>拆分字符串：str.split(分隔符)<br>函数格式：str.split(分隔符)<br>返回值：将字符串，根据指定的分隔符，转换为列表<br>string1 = “锅包肉 肠粉 毛血旺 宫保鸡丁”<br>list2 = string1.split(‘ ‘)<br>[‘锅包肉’, ‘肠粉’, ‘毛血旺’, ‘宫保鸡丁’]<br>列表转为字符串：’分隔符’.join(list)<br>函数格式:’分隔符’.join(list)<br>返回值：将指定的列表中的元素，通过分隔符进行连接，转换为字符串<br>list2 = [‘锅包肉’, ‘肠粉’, ‘毛血旺’, ‘宫保鸡丁’]<br> ‘ ‘.join(list2)<br>‘锅包肉 肠粉 毛血旺 宫保鸡丁’<br>print(list1)<br>2)Tuple元组<br>1、元组的概念：元组是值的有序序列，里面可以存储各种数据类型的元素。但是元组一旦被赋值后，其内容就不可被改变。<br>2、声明与赋值<br>第一种，tup = a,b,c,d<br>第二种，tup = (a,b,c,d) 推荐使用该种声明方式。<br>第三种，tup = tuple() 声明一个空的元组对象<br>注意：元组在赋值时，且元素只有一个时，具体情况如下：<br>tuple1 = (1,)或tuple1 = 1,一定要在元素后面加上一个,号，与普通变量赋值进行区分。<br>3、常用操作<br>+、*、in、遍历等等，参考列表。<br>4、元组与列表转换<br>元组转为列表：<br>tuple1 = (1,2,3)<br>list1 = list(tuple1)<br>列表转为元组<br>list1 = [1,2,3]<br>tuple1 = tuple(list1)<br>周内容补充:<br>1、在python中，我们认为变量如果被赋值后，使用not运算后，会得False。如果一个变量没有被赋值或设为空值，那么进行not运算时，返回True。比如：<br>a = 10<br>not a =&gt; False<br>a = None (None代表了空值)<br>not a =&gt; True<br>list1 = list() 此时列表没有被赋值，为空列表<br>not list1 =&gt; True<br>list1.append(1,2,3)  此时列表进行赋值<br>not list1 =&gt; False</p>
-<h3 id="字典数据类型"><a href="#字典数据类型" class="headerlink" title="字典数据类型"></a>字典数据类型</h3><hr>
-<p>1、字典类型的基本概念<br>字典数据类型，由key=value结构构成的。也就是说字典类型中的每个元素都是有两部分构成，中间使用：连接。其中，key和value的可以是任意数据类型的内容。<br>2、字典对象的生成<br>第一种、dic = {1:’one’,2:’two’,3:’three’}，两边使用一对{}来界定。<br>第二种、dic = dict() 生成一个空字典。<br>第三种、dic = dict({1:’one’,2:’two’,3:’three’})</p>
-<p>注意：字典中的key是唯一的，如果在生成时命名了多个同名的key，那么实际上字典会使用最后一次命名的key来覆盖前面的同名内容。<br>同时，字典在赋值时，允许其value或key为空。<br>3、字典的特性<br>首先、字典中的元素时根据每对键值对中的key来决定的，通过相应的哈希算法来决定他们对应的value的存储地址，因此字典时无序的。<br>其次，字典中的key，可以是数值、字符串、元组等构成，注意这些内容都是不可改变的。同时，字典中的key都是唯一的。<br>然后，字典中的value需用通过key来获取。<br>4、字典的常用操作<br>1）字典的新增和修改<br>dic = {1:’one’,2:’two’,3:’three’}</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>dic[4] = ‘four’<br>{1: ‘one’, 2: ‘two’, 3: ‘three’, 4: ‘four’}<br>如果字典中不存在指定的key，则对该字典实现元素的新增<br>{1: ‘one’, 2: ‘two’, 3: ‘three’, 4: ‘four’, 5: ‘fiv’}<br>dic[5] = ‘five’<br>{1: ‘one’, 2: ‘two’, 3: ‘three’, 4: ‘four’, 5: ‘five’}<br>如果字典中存在指定的key，那么对key对应的value进行修改<br>2）字典的删除<br>第一种，使用del进行字典内容的删除<br>del dic[key]    删除指定可以对应的value内容<br>del dic         删除整个字典，并释放其所占内存<br>第二种，使用pop()函数，删除指定key对应的value内容<br>函数格式：dict.pop(key)  ，其中参数为字典中的key值<br>返回值：返回所删除key对应的value内容<br>第三种，使用clear()函数，清空字典中所有内容<br>函数格式：dict.clear()<br>返回值：清空字典内容，返回一个空字典<br>第四种：popitem()，删除字典中的键值对<br>函数格式：dict.popitem()<br>返回值：会在字典尾部，弹出键值对并删除，将删除的键值对按照元组类型返回</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>3）检索字典<br>第一、查询指定的value,通过指定的key找到对应的value<br>dic[1] = &gt; ‘one’<br>第二、遍历字典<br>for key in dic:<br>    dic[key]</p>
-<p>‘one’<br>‘two’<br>‘three’<br>‘four’<br>‘five<br>4）字典与列表、元组的转换<br>列表转成字典<br>list1 = [[1,’one’],[2,’two’],[3,’three’]]<br>或<br>list1 = [(1,’one’),(2,’two’),(3,’three’)]<br>dic = dict(list1)<br>{1: ‘one’, 2: ‘two’, 3: ‘three’}<br>元组转成字典<br>tup = ((1,’one’),(2,’two’),(3,’three’))<br>dic = dict(tup)<br>{1: ‘one’, 2: ‘two’, 3: ‘three’}<br>注意：不管是元组还是列表，其作为key的那个值必须是不可变数据类型。<br>同时，我们对字典进行新增和修改时，其key可以使用True或False，但是要注意在使用他们时字典会首先对已有的key进行比对，如果有重复的则进行修改（True==1，False==0）</p>
-<p>使用zip()函数生成字典<br>函数格式：zip(iter1,iter2,….)<br>返回值：返回一个zip对象<br>我们通过zip函数，指定对应的元组，分别来作为字典的key和 value，生成zip对象转成字典数据。<br>例如：<br>dict(zip((‘id’,’name’,’city’),(1,’hhp’,’zhengzhou’)))</p>
-<p>5）常用函数<br>1、keys(),获得字典所有的key值集合<br>函数格式：dict.keys()<br>返回值：dict_keys 类型，实际内容为一个list列表。</p>
-<p>dic = {1:’one’,2:’two’,3:’three’}<br>for key in dic.keys():<br>     print(key,dic[key])<br>2、values(),获得字典中所有的value值的集合<br>函数格式：dict.values()<br>返回值：dict_values类型，实际内容为一个list列表<br>3、items(),获得字典中所有key=value键值对的集合<br>函数格式：dict.items()<br>返回值：dict_items类型，实际内容为一个包含元组的list列表<br>dic = {1:’one’,2:’two’,3:’three’}<br>dic.items()</p>
-<p>dict_items([(1, ‘one’), (2, ‘two’), (3, ‘three’)])<br>4、get()，获得字典中指定key对应的value内容<br>函数格式：dict.get(key)<br>返回值：返回指定key对应的value，如果没有找到则不返回任何内容即返回None。例如：<br>dic.get(5) == None<br>True<br>5、setdefault()，返回指定key对应的内容，如果这个key不存在，那么就进行新增<br>函数格式：dict.setdefault(key[,value]),其中key为键值，如果该key在字典中已经存在，那么不需要填写value参数；如果key值在字典中不存在，需要value参数。<br>返回值：如果key值存在，返回该key对应的value内容；如果key不存在，则进行新增返回新增的value内容。<br>6、update(),将新字典中的key=value内容，添加到原有字典尾部，如果新字典内容中有key值与原字典的key值相同，那么就覆盖key值对应的原有value。<br>函数格式：old_dict.update(new_dict)<br>返回值：将新字典中的内容，添加到原有字典的尾部。<br>dic = {1:’麻辣米线’,2:’麻辣烫’,3:’凉皮’,4:’刀削面’,5:’兰州拉面’}<br>dic2 = {‘one’:’美式咖啡’,’two’:’拿铁’,’three’:’卡布基诺’,5:’甜甜圈’}<br>dic.update(dic2)<br>{1: ‘麻辣米线’, 2: ‘麻辣烫’, 3: ‘凉皮’, 4: ‘刀削面’, 5: ‘甜甜圈’, ‘one’: ‘美式咖啡’, ‘two’: ‘拿铁’, ‘three’: ‘卡布基诺’}<br>7、fromkeys(),通过指定的key集合，生成一个新字典，其value值缺省为None<br>函数格式：dict.fromkeys(iter1[,value]) 其中iter1为可迭代化集合，比如：列表、元组；value可以是任意数据类型。<br>返回值：返回一个新字典，其中key为我们在参数中使用的iter1集合，值都为None或者指定的value。比如：<br>dic3 = dict({‘a’:’one’,’b’:’two’,’c’:’three’})<br>a = dic3.fromkeys([1,2,3])<br>{1: None, 2: None, 3: None}</p>
-<p>dic3 = dict({‘a’:’one’,’b’:’two’,’c’:’three’})<br>a = dic3.fromkeys([1,2,3],[‘a’,’b’,’c’])<br>{1: [‘a’, ‘b’, ‘c’], 2: [‘a’, ‘b’, ‘c’], 3: [‘a’, ‘b’, ‘c’]}<br>讨论：<br>列表的可迭代化<br>当生成一个空列表时，因为列表中没有值，所以python并没有相应的内存地址分配给这个列表变量，当该列表添加元素后，python会自动给该列表扩充内存地址，那么地址都是依次连续的在内存中进行排列。</p>
-<h3 id="集合数据类型-set"><a href="#集合数据类型-set" class="headerlink" title="集合数据类型 set"></a>集合数据类型 set</h3><p>1、集合的概念：集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。并且集合是不允许有重复元素，如果出现重复元素，除去第一个元素之外，都会被集合所忽略<br>注意：set是无序的，即存储元素到set的顺序与这些元素输出的顺序无关。set仍然是采用哈希算法，对这些元素进行存储的。<br>2、集合的声明与赋值<br>1）set1 = {1,2,3}   生成一个集合<br>2）set1 = set({1,2,3})<br>3)set1 = set()  生成一个空集合，请注意集合只能通过set()函数来生成空集合，而不是通过set1 = {},这个表达式会生成一个空字典。<br>3、数据类型转换<br>字符串转成集合<br>string = ‘hello’<br>set1 = set(string)<br>{‘l’, ‘o’, ‘h’, ‘e’}<br>列表转成集合<br>list1 = [1,2,3]<br>set1 = set(list1)<br>{1, 2, 3}<br>元组转成集合<br>tup = (1,2,3)<br>set1 = set(tup)<br>{1, 2, 3}<br>4、集合的操作<br>1）元素的增加 add()<br>函数格式：set.add(元素)<br>返回值：无返回值<br>结果：集合元素增加一个<br>例如：<br>set1=&gt;{1, 2, 3}<br>set1.add(4)<br>{1, 2, 3, 4}<br>2）元素的删除<br>第一、remove()<br>函数格式：set.remove(元素)<br>返回值：无返回值<br>结果：集合指定的元素被删除<br>set  =&gt; {1, 2, 3, 4, 5}<br>set1.remove(5)<br>{1, 2, 3, 4}<br>第二、discard()<br>函数格式：set.discard(元素)<br>返回值：无返回值<br>结果：集合中指定的元素被删除<br>set  =&gt; {1, 2, 3, 4, 5}<br>set1.discard(5)<br>{1, 2, 3, 4}<br>注意：上面两个方法，如果删除一个不存在的元素，其中remove()会报错，而discar()无反应<br>第三、clear() 清空集合中所有的元素<br>函数格式：set.clear()<br>返回值：无返回值<br>结果：清空集合中所有的元素<br>set.clear()<br>第四、del命令 删除集合，并释放其所占内存资源<br>del set<br>5、集合运算<br>1）并集运算 (|)或union()<br>两个集合进行并集运算，即将两个集合中的元素都合并到一个新的集合中，重复的元素只出现一次。<br>例如：<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1 | set2 =&gt; {‘jp’, ‘tw’, ‘fr’, ‘zh’, ‘en’}<br>或者<br>set1.union(set2)<br>2）交集运算 （&amp;）或intersection()<br>两个集合进行交集运算，即将两个集合中相同的元素合并到一个新的集合中。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1 &amp; set2 =&gt; {‘en’}<br>或者<br>set1.intersection(set2)<br>3)差集运算（-）或difference()<br>两个集合进行差集运算，即运算符左边的集合，与运算右边的集合进行差运算，相当于使用左边集合去除与右边集合相同的元素。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1 - set2 =&gt; {‘zh’, ‘tw’}<br>或者<br>set1.difference(set2)<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set2 - set1 =&gt; {‘jp’, ‘fr’}<br>或者<br>set2.difference(set1)<br>4)对称差运算（^）或者symmetric_difference()<br>两个集合进行对称差运算，即两个集合中除去相同元素，其他所有元素重新归并到一个新集合中。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set2 ^ set1 =&gt; {‘zh’, ‘tw’,’jp’, ‘fr’}<br>set1.symmetric_difference(set2)<br>5)子集与超集（父集）<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>subset =&gt; {‘zh’, ‘tw’}<br>我们通过观察可以看到，subset中的内容，属于set1的一部分。因此，<br>subset.issubset(set1) =&gt; True<br>表示，subset是set1集合的一个子集合<br>同理，我们也可以说，set1是subset的父集合<br>set1.issuperset(subset) =&gt; True<br>6、集合常用函数<br>1）update()<br>函数格式：set1.update(set2)<br>返回值：无<br>结果：我们将set2中的元素，添加到set1中，如果有相同的元素只保留一个。同时，该操作会修改set1的元素数量。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1.update(set2)<br>set1 =&gt; {‘jp’, ‘tw’, ‘fr’, ‘zh’, ‘en’}<br>2)intersection_update()<br>函数格式：set1.intersection_update(set2)<br>返回值：无<br>结果：我们使用set2中的元素，添加到set1中，其中，保留两个集合中相同的元素。其中，set1、set2中其他的元素被舍弃。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1.intersection_update(set2)<br>set1 =&gt; {‘en’}<br>3）symmetric_difference_update()<br>函数格式：symmetric_difference_update()<br>返回值：无<br>结果：我们使用set1与set2进行运算，只保留两者除去相同元素之外的元素。<br>set1 =&gt; {‘zh’, ‘tw’, ‘en’}<br>set2 =&gt; {‘jp’, ‘fr’, ‘en’}<br>set1.symmetric_difference_update(set2)<br>set1 =&gt; {‘jp’, ‘fr’, ‘zh’, ‘tw’}</p>
-<h3 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h3><hr>
-<p>1、range()<br>range()函数自身并不会自动产生整数序列，它需要使用其他方式来调用它才会产生。<br>2、列表推导式生成式<br>格式：[表达式或函数  for x in 序列]<br>含义：通过生成式中的循环，逐一产生x值，表达式使用X值进行相关运算。最终结果作为列表的元素。也就意味着，循环多少次，就会产生多少个相关元素。<br>3、迭代器（Iterator）<br>1）概念：迭代器访问元素，是从第一个元素开始，依次访问后续元素直到结束。其中迭代器只能向前不能回退。其包含两个方法iter()和next()。<br>iter()用来创建一个迭代器，next()用来访问下一个元素。<br>目前我们所学的字符串、列表、元组都可以创建迭代器，那么他们也是可迭代化的对象。<br>迭代器两个步骤：<br>1、当调用next()函数，会将迭代器当前位置状态进行改变<br>2、会将下一个元素进行返回</p>
-<p>迭代器的延迟作用：迭代器生成的元素并不是在迭代器声明时，就准备好了的。通常时在调用迭代器需要提供该元素时生成的，也就是说只有在我们需要的时候迭代器才产生相关元素，不需要时并不会主动的生成相关元素。我们可以把迭代器看成一个容器，到我们需要时使用next()方法返回容器中的下一个值。<br>迭代器实现了工厂模式的对象，它在你每次访问下一个值的时候给你返回。</p>
-<p>可迭代化（iterable）：表明相关的对象可以创建迭代器对象，同时他们自身都是可以进行for数据遍历的。我们可以使用isinstance()来判断对象是否为可迭代化</p>
-<p>from collections import Iterable<br>string = ‘hello’<br>print(isinstance(string, Iterable))  =&gt; True<br>函数格式：isinstance(对象，类型)<br>返回值：布尔值<br>结果：如果指定的对象属于指定的类型，那么返回True，反之返回False</p>
-<p>enumerate()函数<br>函数格式：enumerate(iterable)<br>返回值：生成一个枚举对象<br>例如：<br>enum = enumberate([‘one’,’two’,’three’])<br>for i in enum:<br>    print(i)</p>
-<p>(0, ‘one’)<br>(1, ‘two’)<br>(2, ‘three’)</p>
-<p>for i,value in enum:<br>    print(i, value)</p>
-<p>0 one<br>1 two<br>2 three</p>
-<p>生成器<br>1、创建方式<br>第一种，使用列表推导式，将[]改为()，生成一个generator对象<br>第二种，使用函数方式，采用yield关键字来实现<br>2、使用<br>生成器我们通常可以认为一种特殊的迭代器，但是它不需要像迭代器一样去实现<strong>iter</strong>,<strong>next</strong>方法。只需要使用yield关键字，该关键字可以在每次调用生成器函数时起到暂停作用，并将其值进行返回。同时还会记录当前运行值的状态。</p>
-<p>总结：迭代器和生成器<br>1、容器是一系列的元素集合，str、list、set、dict对象都可以看作是容器，容器都可以进行迭代（即用在while或for循环），凡是这样的容器我们都称为可迭代化对象（Iterable）。<br>2、可迭代化对象都实现了<strong>iter</strong>方法，该方法返回一个迭代器对象。<br>3、迭代器都拥有一个状态字段，用于记录下次迭代返回值。它实现了<strong>next</strong>和<strong>iter</strong>方法，迭代器不会一次性把所有的元素都加载到内存中，而是在需要的时候才生成返回结果。<br>4、生成器是一种特殊的迭代器，它的返回值不是通过return来返回的，而是通过yield来返回的。<br>‘’’</p>
+<p>7）连接符与重复操作符<br>+：在字符串中使用时，作为连接两个字符串，并返回一个新字符串的作用来使用。<br><em>：重复操作指定的次数，即将字符串重复输出N次。返回一个新字符串。<br>注意：在重复操作中，必须遵循：字符串</em>正整数这样的格式，如果数值不是正整数，其结果返回一个空字符串，如果不是数值类型，程序报错。<br>8）in运算符<br>用来检测指定的内容，是否在字符串中，如果存在则返回True，反之返回False<br>例如:<br>string1 = ‘hello world’<br>substr = ‘e’<br>substr in string1<br>True<br>substr = ‘ll’<br>substr in string1<br>True<br>substr = ‘wr’<br>substr in string1<br>False</p>
 <h3 id="copy-浅拷贝-和deepcopy-（深拷贝）"><a href="#copy-浅拷贝-和deepcopy-（深拷贝）" class="headerlink" title="copy()(浅拷贝)和deepcopy()（深拷贝）"></a>copy()(浅拷贝)和deepcopy()（深拷贝）</h3><hr>
 <p>1、浅拷贝：我们使用copy()函数将列表中的元素，进行复制，通常对于普通的列表（一维）能够实现完全的值传递，即将自身的副本赋值给另外一个列表。例如：<br>ls1 = [1,2,3,4,5]<br>ls2 = ls1.copy()  # 将ls1中的元素赋值给ls2,此时他们的值相等的<br>ls1[3] = 6        #此时，对ls1中索引位3的值进行修改，变为6<br>观察其结果，我们可以发现ls1 =&gt; [1,2,3,6,5],但是ls2 =&gt;[1,2,3,4,5]没有发生改变<br>一旦，ls1的列表元素结构发生变化，出现子列表嵌套。<br>如：ls1 = [1,2,3,[‘one’,’two’],5]，这是再使用copy()对ls2赋值，我们进行如下修改：<br>ls1 = [1,2,3,[‘one’,’two’],5]<br>ls2 = ls1.copy()<br>ls1[3][0] = ‘three’<br>我们观察其结果，可以发现ls1 =&gt; [1,2,3,[‘three’,’two’],5],同时ls2也会随之变化 ls2 =&gt; [1,2,3,[‘three’,’two’],5]。<br>总结：这种现象我们成为浅拷贝，copy()函数进行组合数据类型拷贝时，只能控制第一层元素进行值传递，一旦出现嵌套的子列表、子字典等内容，将不再拷贝其内容的值，而是直接将这个嵌套的内存地址，赋值给ls2。所以会造成一旦原列表改变子列表内容后，目标列表中对应的子列表也发生改变。<br>2、深拷贝：我们需要引入copy这个模块，调用deepcopy()函数。写法如下：<br>import copy</p>
 <p>ls1 = [1,2,3,[‘one’,’two’],5]<br>ls2 = copy.deepcopy(ls1)<br>ls1[3][0] = ‘three’<br>此时，我们发现ls1内容发生改变后，但是ls2并没有随之改变，那么也就是意味着deepcopy()将ls1中内容，包括嵌套里面的元素都进行了副本赋值，给ls2。因此，他们只是值相同，并没有指向同一个内存地址。</p>
